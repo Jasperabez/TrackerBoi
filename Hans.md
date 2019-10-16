@@ -20,12 +20,15 @@ Here I'll explain how to:
 #### Code in C++
 
 before you typed anything in your C++ program, start with this
-`#include <iostream>`
-`using namespace std;`
-`int main`
-`{`
-`  //Code here`
-}`
+```c++
+#include <iostream>
+using namespace std;
+
+int main
+{
+  //Code here
+}
+```
 
 The above snippet of codes will be the boilerplate for any of your noob level C++ program
 
