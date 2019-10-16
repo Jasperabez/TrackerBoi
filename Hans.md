@@ -36,7 +36,9 @@ Now, we will follow the tradition of learning a new language, it is a revered lo
 
 **REMOVE THE '//Code here' AND ADD IN THE MAGIC SEQUENCE**
 
-`cout << "Hello World" << endl;`
+```c++
+cout << "Hello World" << endl;
+```
 
 Congratulation, *you* have transcended to a higher being,
 one that is capable of thinking, understanding, and coding.
