@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-02T03:17:30+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>undecided</subtitle><entry><title type="html">MicroPython and MicroBit</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython and MicroBit" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;h2 id=&quot;how-to-insall-microbit-support-in-vscode&quot;&gt;How to insall MicroBit support in VSCode&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Search for “Micro-bit” in the Marketplace and get the english looking one&lt;/li&gt;
+  &lt;li&gt;Install Python 3&lt;/li&gt;
+  &lt;li&gt;run
+```
+pip install uflash
+``&lt;/li&gt;
+  &lt;li&gt;get microbit library using “fetch”&lt;/li&gt;
+  &lt;li&gt;then flash!
+    &lt;blockquote&gt;
+      &lt;p&gt;If it doesn’t work, specify the path of the microbit&lt;/p&gt;
+      &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uflash yourCode.py F:/(directory of MicroBit)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">How to insall MicroBit support in VSCode</summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/TrackerBoi/Hans/" rel="alternate" type="text/html" title="Hello World" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Hans</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Hans/">&lt;h2 id=&quot;how-to-markdown-and-git&quot;&gt;How to MarkDown and Git&lt;/h2&gt;
+
+&lt;p&gt;Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it. For example&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; # Example 1
+ ## Example 2
+ ### Example 3
+ #### Example 4 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;will give you&lt;/p&gt;
+
+&lt;h1 id=&quot;example-1&quot;&gt;Example 1&lt;/h1&gt;
+&lt;h2 id=&quot;example-2&quot;&gt;Example 2&lt;/h2&gt;
+&lt;h3 id=&quot;example-3&quot;&gt;Example 3&lt;/h3&gt;
+&lt;h4 id=&quot;example-4&quot;&gt;Example 4&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Spacing &lt;strong&gt;AFTER&lt;/strong&gt; the hashgstags are &lt;strong&gt;very very&lt;/strong&gt; important&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Some more things you can do&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*Test1*
+**Test2**
+~~Test3~~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Test1&lt;/em&gt;
+&lt;strong&gt;Test2&lt;/strong&gt;
+&lt;del&gt;Test3&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;Even &lt;strong&gt;MORE&lt;/strong&gt; things you can do&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;Lorem Ipsum
+1. This
+2. Is
+3. A
+4. List
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;This&lt;/li&gt;
+    &lt;li&gt;Is&lt;/li&gt;
+    &lt;li&gt;A&lt;/li&gt;
+    &lt;li&gt;List&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And finally, I’m too lazy too add more of the things you can do, so this is the final one&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+ &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;
+
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hyperlink&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theActualLinkItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;remove the bunny ears, its there just to make everything is rendered properly&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.theActualLinkItself.com.sg&quot;&gt;hyperlink text&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;how to MD&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;learning-how-to-git-collab&quot;&gt;Learning how to git (collab)&lt;/h2&gt;
+
+&lt;p&gt;Go to the directory that you want to save the repo in &lt;strong&gt;locally&lt;/strong&gt;
+Key in the following to clone the whole repo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git clone &amp;lt;insert_git_url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That’s it!
+With that you will have the whole repo locally in your computer :D&lt;/p&gt;
+
+&lt;h4 id=&quot;making-changes&quot;&gt;Making changes&lt;/h4&gt;
+
+&lt;p&gt;When you make changes in the repo, follow the following flow.
+&lt;strong&gt;Always&lt;/strong&gt; fetch before making changes, fetching will get all the other changes that others (might) have done.&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pull&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After fetching, you can now do your work!
+When you have done doing your work always remember to &lt;em&gt;Ctrl + S&lt;/em&gt; !
+BUT, this will only make changes locally, to save it to your repo, do&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;Description here&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will save your changes into your repo, much like saving your files locally.
+However, try to commit in logical chucks of changes as this will help in your version controlling in the future&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Basically, just do it. You’ll thank yourself in the future&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then finally, share your changes to the world!
+One commit at a time&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thanks Jabez for his great guidance on how to git &lt;br /&gt;
+luv u bby ;)&lt;/p&gt;
+
+&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://gist.github.com/adamloving/5690951&quot;&gt;how to git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">How to MarkDown and Git</summary></entry><entry><title type="html">Using Jekyll pages</title><link href="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/" rel="alternate" type="text/html" title="Using Jekyll pages" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Using-Jekyll-Pages</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/">&lt;p&gt;“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.&lt;/p&gt;
+
+&lt;p&gt;I used &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll-now&lt;/a&gt; for this specific site. Follow the detail steps as according to the link, and remember to tick the github pages option for your fork. After editing the config and set up everything you can add new post by putting the markdown files in the “_posts” folder.&lt;/p&gt;
+
+&lt;h2 id=&quot;sample-post-template&quot;&gt;Sample post template&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+layout: post
+title: Using Jekyll pages
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;the text above is the heading for all post you make, so put it at the top.&lt;/p&gt;
+
+&lt;p&gt;To be able to get the written date be sure to format the name of the file as “YYYY-MM-DD-POSTNAME.md” for example like this “2019-10-16-Using-Jekyll-pages”&lt;/p&gt;
+
+&lt;h2 id=&quot;some-useful-info&quot;&gt;Some useful info&lt;/h2&gt;
+
+&lt;p&gt;To refer to content in the site use this (remove the quotes):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;{site.baseurl}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which points to the root directory of the site&lt;/p&gt;
+
+&lt;h2 id=&quot;final-words&quot;&gt;Final words&lt;/h2&gt;
+&lt;p&gt;You are all set to whip up new posts using markdown, and &lt;a href=&quot;/TrackerBoi\Hans&quot;&gt;here’s&lt;/a&gt; a quick markdown cheatsheet that my friend Hans wrote to refer to :)&lt;/p&gt;</content><author><name></name></author><summary type="html">“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.</summary></entry></feed>
