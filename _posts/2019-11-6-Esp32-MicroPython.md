@@ -20,7 +20,7 @@ under "Ports (COM & LPT)"
 
 as you can see, mine is on COM8
 
-run the following in terminal, replacing "COM8" with whatever port yours is connected to
+run the following in terminal, replacing _"COM8"_ with whatever port yours is connected to
 
 ```bash
 esptool.py --chip esp32 --port COM8 erase_flash
@@ -37,7 +37,7 @@ After downloading the file, navigate your terminal to the location of the downlo
 esptool.py --chip esp32 --port COM8 --baud 460800 write_flash -z 0x1000 esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin
 ```
 
-Similarly, change "COM8" to your own port number and "esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin" to the firmware you download.
+Similarly, change _"COM8"_ to your own port number and _"esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin"_ to the firmware you download.
 
 Now for testing!
 
@@ -69,7 +69,7 @@ Run the following in terminal.
 pip install ampy
 ```
 
-now create a "main.py" file somewhere and navigate your terminal to it.
+now create a _"main.py"_ file somewhere and navigate your terminal to it.
 We are going to use pin 21 to blink an LED so add the following code in main.py
 
 ```python
@@ -91,7 +91,7 @@ Save the file and in your terminal, run the following
 ampy --port COM8 put main.py
 ```
 
-yet again, change COM8 to your own port number.
+yet again, change _COM8_ to your own port number.
 
 Connect pin 21 to a resistor and the resistor to the positive leg of the LED and the negative leg of the LED to GND.
 
