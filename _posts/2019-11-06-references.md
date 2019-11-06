@@ -23,6 +23,8 @@ title: References
 
 * https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/
 
+* https://dronebotworkshop.com/dc-motors-l298n-h-bridge/
+
 ## For Mechanical Related
 
 * http://mehanizacija.ftn.uns.ac.rs/wp-content/uploads/2017/07/Part-12.pdf (Overview of mechanics)
