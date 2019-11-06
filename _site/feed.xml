@@ -1,34 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-02T03:31:25+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">MicroPython and MicroBit</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython and MicroBit" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;h2 id=&quot;how-to-insall-microbit-support-in-vscode&quot;&gt;How to insall MicroBit support in VSCode&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-06T11:17:46+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">References</title><link href="http://localhost:4000/TrackerBoi/references/" rel="alternate" type="text/html" title="References" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/references</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/references/">&lt;p&gt;“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;h2 id=&quot;for-electrical-related&quot;&gt;For Electrical Related&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;http://esp32.net/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://en.wikipedia.org/wiki/ESP32&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://docs.micropython.org/en/latest/esp32/tutorial/intro.html&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/overview&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://github.com/espressif/esptool&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;http://micropython.org/download#esp32&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://dronebotworkshop.com/dc-motors-l298n-h-bridge/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;for-mechanical-related&quot;&gt;For Mechanical Related&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;http://mehanizacija.ftn.uns.ac.rs/wp-content/uploads/2017/07/Part-12.pdf (Overview of mechanics)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://mae.ufl.edu/designlab/motors/EML2322L%20Drive%20Wheel%20Motor%20Torque%20Calculations.pdf 
+(Important for Individual Assignment)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://sg.rs-online.com/web/c/automation-control-gear/electric-motors-motor-controllers-peripherals/dc-geared-motors/ (For the type of motors available in the market)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://www.wikiwand.com/en/Continuous_track (History and concept of track vehicles)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;for-others&quot;&gt;For Others&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://github.com/barryclark/jekyll-now (Jekyll Pages Guide)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”</summary></entry><entry><title type="html">Esp32 and MicroPython</title><link href="http://localhost:4000/TrackerBoi/Esp32-MicroPython/" rel="alternate" type="text/html" title="Esp32 and MicroPython" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Esp32-MicroPython</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Esp32-MicroPython/">&lt;p&gt;“Flashing MicroPython to the Esp32 for Windows”&lt;/p&gt;
+
+&lt;h3 id=&quot;flashing-micropython-to-esp32&quot;&gt;Flashing MicroPython to Esp32&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;esptool
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Connect your Esp32 to your computer and find its port number.
+For Windows, use device manager (either ask Cortana for it or for hotkeys user: Win_btn + X)&lt;/p&gt;
+
+&lt;p&gt;under “Ports (COM &amp;amp; LPT)”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/comPortFinding.jpg&quot; alt=&quot;Device Manager &amp;gt; Ports (COM &amp;amp; LPT)&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;as you can see, mine is on COM8&lt;/p&gt;
+
+&lt;p&gt;run the following in terminal, replacing &lt;em&gt;“COM8”&lt;/em&gt; with whatever port yours is connected to&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;esptool.py &lt;span class=&quot;nt&quot;&gt;--chip&lt;/span&gt; esp32 &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 erase_flash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, get the new firmware flash here: &lt;a href=&quot;https://micropython.org/download#esp32&quot;&gt;MicroPython for Esp32&lt;/a&gt;
+I’ve downloaded the very first “Generic” one but you can choose whichever that fits your requirement.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Some of the firwares only have WiFi support or only Bluetooth support, so take note&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After downloading the file, navigate your terminal to the location of the downloaded file and run the following&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;esptool.py &lt;span class=&quot;nt&quot;&gt;--chip&lt;/span&gt; esp32 &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 &lt;span class=&quot;nt&quot;&gt;--baud&lt;/span&gt; 460800 write_flash &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; 0x1000 esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Similarly, change &lt;em&gt;“COM8”&lt;/em&gt; to your own port number and &lt;em&gt;“esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin”&lt;/em&gt; to the firmware you download.&lt;/p&gt;
+
+&lt;p&gt;Now for testing!&lt;/p&gt;
+
+&lt;h3 id=&quot;repl-on-esp32-micropython&quot;&gt;REPL on Esp32 MicroPython&lt;/h3&gt;
+
+&lt;p&gt;on windows terminal install rshell&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rshell
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;then run repl in rshell&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rshell
+connect serial COM8
+repl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;again, change COM8 to your port number.
+If everything works, the MicroPython interpreter will show up! Congratz!&lt;/p&gt;
+
+&lt;h3 id=&quot;flashing-scripts-to-esp32&quot;&gt;Flashing scripts to Esp32&lt;/h3&gt;
+
+&lt;p&gt;To have a permanent script that runs everytime the Esp32 boots, we will use another package.
+Run the following in terminal.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ampy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;now create a &lt;em&gt;“main.py”&lt;/em&gt; file somewhere and navigate your terminal to it.
+We are going to use pin 21 to blink an LED so add the following code in main.py&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep_ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep_ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Save the file and in your terminal, run the following&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ampy &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 put main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;yet again, change &lt;em&gt;COM8&lt;/em&gt; to your own port number.&lt;/p&gt;
+
+&lt;p&gt;Connect pin 21 to a resistor and the resistor to the positive leg of the LED and the negative leg of the LED to GND.&lt;/p&gt;
+
+&lt;p&gt;Reset your Esp32 and it should blink! Congratz!&lt;/p&gt;</content><author><name></name></author><summary type="html">“Flashing MicroPython to the Esp32 for Windows”</summary></entry><entry><title type="html">MicroPython, MicroBit and VSCode</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython, MicroBit and VSCode" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;p&gt;“Installing MicroPython with MicroBit support for VSCode”&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Search for “Micro-bit” in the Marketplace and get the english looking one&lt;/li&gt;
   &lt;li&gt;Install Python 3&lt;/li&gt;
-  &lt;li&gt;run
-```
-pip install uflash
-``&lt;/li&gt;
-  &lt;li&gt;get microbit library using “fetch”&lt;/li&gt;
-  &lt;li&gt;then flash!
-    &lt;blockquote&gt;
-      &lt;p&gt;If it doesn’t work, specify the path of the microbit&lt;/p&gt;
-      &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uflash yourCode.py F:/(directory of MicroBit)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">How to insall MicroBit support in VSCode</summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/TrackerBoi/Hans/" rel="alternate" type="text/html" title="Hello World" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Hans</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Hans/">&lt;h2 id=&quot;how-to-markdown-and-git&quot;&gt;How to MarkDown and Git&lt;/h2&gt;
+  &lt;li&gt;run&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it. For example&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install uflash
+``
+4. get microbit library using &quot;fetch&quot;
+5. then flash!
+&amp;gt;If it doesn't work, specify the path of the microbit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;uflash yourCode.py F:/(directory of MicroBit)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Yeet real hard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">“Installing MicroPython with MicroBit support for VSCode”</summary></entry><entry><title type="html">How to MarkDown and Git</title><link href="http://localhost:4000/TrackerBoi/Hans/" rel="alternate" type="text/html" title="How to MarkDown and Git" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Hans</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Hans/">&lt;p&gt;“Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it.”&lt;/p&gt;
+
+&lt;p&gt;For example&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; # Example 1
  ## Example 2
  ### Example 3
- #### Example 4 
+ #### Example 4
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;will give you&lt;/p&gt;
 
 &lt;h1 id=&quot;example-1&quot;&gt;Example 1&lt;/h1&gt;
+
 &lt;h2 id=&quot;example-2&quot;&gt;Example 2&lt;/h2&gt;
+
 &lt;h3 id=&quot;example-3&quot;&gt;Example 3&lt;/h3&gt;
+
 &lt;h4 id=&quot;example-4&quot;&gt;Example 4&lt;/h4&gt;
 
 &lt;blockquote&gt;
@@ -54,20 +201,22 @@ pip install uflash
 3. A
 4. List
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;blockquote&gt;
   &lt;p&gt;Lorem Ipsum&lt;/p&gt;
-  &lt;ol&gt;
-    &lt;li&gt;This&lt;/li&gt;
-    &lt;li&gt;Is&lt;/li&gt;
-    &lt;li&gt;A&lt;/li&gt;
-    &lt;li&gt;List&lt;/li&gt;
-  &lt;/ol&gt;
 &lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;This&lt;/li&gt;
+  &lt;li&gt;Is&lt;/li&gt;
+  &lt;li&gt;A&lt;/li&gt;
+  &lt;li&gt;List&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;And finally, I’m too lazy too add more of the things you can do, so this is the final one&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
  &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;
 
  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hyperlink&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theActualLinkItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -77,7 +226,7 @@ pip install uflash
   &lt;p&gt;remove the bunny ears, its there just to make everything is rendered properly&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;www.theActualLinkItself.com.sg&quot;&gt;hyperlink text&lt;/a&gt;&lt;/p&gt;
@@ -112,6 +261,7 @@ BUT, this will only make changes locally, to save it to your repo, do&lt;/p&gt;
 
 &lt;p&gt;This will save your changes into your repo, much like saving your files locally.
 However, try to commit in logical chucks of changes as this will help in your version controlling in the future&lt;/p&gt;
+
 &lt;blockquote&gt;
   &lt;p&gt;Basically, just do it. You’ll thank yourself in the future&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -122,10 +272,7 @@ One commit at a time&lt;/p&gt;
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Thanks Jabez for his great guidance on how to git &lt;br /&gt;
-luv u bby ;)&lt;/p&gt;
-
-&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://gist.github.com/adamloving/5690951&quot;&gt;how to git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">How to MarkDown and Git</summary></entry><entry><title type="html">Using Jekyll pages</title><link href="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/" rel="alternate" type="text/html" title="Using Jekyll pages" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Using-Jekyll-Pages</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/">&lt;p&gt;“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.&lt;/p&gt;
+&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://gist.github.com/adamloving/5690951&quot;&gt;how to git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">“Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it.”</summary></entry><entry><title type="html">Using Jekyll pages</title><link href="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/" rel="alternate" type="text/html" title="Using Jekyll pages" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Using-Jekyll-Pages</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/">&lt;p&gt;“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.&lt;/p&gt;
 
 &lt;p&gt;I used &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll-now&lt;/a&gt; for this specific site. Follow the detail steps as according to the link, and remember to tick the github pages option for your fork. After editing the config and set up everything you can add new post by putting the markdown files in the “_posts” folder.&lt;/p&gt;
 
