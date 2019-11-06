@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-06T11:20:48+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">References</title><link href="http://localhost:4000/TrackerBoi/references/" rel="alternate" type="text/html" title="References" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/references</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/references/">&lt;p&gt;“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-06T11:47:15+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">References</title><link href="http://localhost:4000/TrackerBoi/references/" rel="alternate" type="text/html" title="References" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/references</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/references/">&lt;p&gt;“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
@@ -139,93 +139,23 @@ We are going to use pin 21 to blink an LED so add the following code in main.py&
 
 &lt;p&gt;Connect pin 21 to a resistor and the resistor to the positive leg of the LED and the negative leg of the LED to GND.&lt;/p&gt;
 
-&lt;p&gt;Reset your Esp32 and it should blink! Congratz!&lt;/p&gt;</content><author><name></name></author><summary type="html">“Flashing MicroPython to the Esp32 for Windows”</summary></entry><entry><title type="html">Esp32 and MicroPython</title><link href="http://localhost:4000/TrackerBoi/Micropython-using-VSDode/" rel="alternate" type="text/html" title="Esp32 and MicroPython" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Micropython-using-VSDode</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Micropython-using-VSDode/">&lt;p&gt;“Flashing MicroPython to the Esp32 for Windows”&lt;/p&gt;
+&lt;p&gt;Reset your Esp32 and it should blink! Congratz!&lt;/p&gt;</content><author><name></name></author><summary type="html">“Flashing MicroPython to the Esp32 for Windows”</summary></entry><entry><title type="html">Micropython using VSCode</title><link href="http://localhost:4000/TrackerBoi/Micropython-using-VSCode/" rel="alternate" type="text/html" title="Micropython using VSCode" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Micropython-using-VSCode</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Micropython-using-VSCode/">&lt;p&gt;VSCode is a powerful text editor which capabilities can be enhance through various extensions. With the Micropython IDE extension installed it is a viable alternative to Thonny and MuEditor. In this guide I am using the Esp32 and running &lt;b&gt;Linux (Manjaro)&lt;/b&gt; as my OS, differences in steps might be expected if your configuration is different.&lt;/p&gt;
 
-&lt;h3 id=&quot;flashing-micropython-to-esp32&quot;&gt;Flashing MicroPython to Esp32&lt;/h3&gt;
+&lt;h2 id=&quot;1-install-visual-studio-code&quot;&gt;1. Install Visual Studio Code&lt;/h2&gt;
+&lt;h2 id=&quot;2-install-micropython-ide-extension&quot;&gt;2. Install Micropython IDE extension&lt;/h2&gt;
+&lt;p&gt;search for it at the extension page
+&lt;img src=&quot;/TrackerBoi/images/Micropython_IDE_page.png&quot; alt=&quot;Micropython IDE page&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-install-the-neccessary-requirements&quot;&gt;3. Install the neccessary requirements&lt;/h2&gt;
+&lt;p&gt;listed at the extension installation page.
+python, pip, Ampy, rshell&lt;/p&gt;
+&lt;h2 id=&quot;4-download-and-flash-firmware-for-first-setup&quot;&gt;4. Download and flash firmware for first setup&lt;/h2&gt;
+&lt;p&gt;Select “Micropython: Getting Started” from the command palette the options are there.
+Port number on windows will be “COMX” and on Linux “dev/ttyUSBX” X is any integer&lt;/p&gt;
+&lt;h2 id=&quot;5-edit-your-script&quot;&gt;5. Edit your Script&lt;/h2&gt;
+&lt;h2 id=&quot;6-run-script&quot;&gt;6. Run Script&lt;/h2&gt;
+&lt;p&gt;Select “Micropython: Run..” from the command palette and run it. &lt;b&gt;Press the reset button on the board&lt;/b&gt; after a successful build to ensure the program is loaded.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;esptool
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Connect your Esp32 to your computer and find its port number.
-For Windows, use device manager (either ask Cortana for it or for hotkeys user: Win_btn + X)&lt;/p&gt;
-
-&lt;p&gt;under “Ports (COM &amp;amp; LPT)”&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/comPortFinding.jpg&quot; alt=&quot;Device Manager &amp;gt; Ports (COM &amp;amp; LPT)&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;as you can see, mine is on COM8&lt;/p&gt;
-
-&lt;p&gt;run the following in terminal, replacing &lt;em&gt;“COM8”&lt;/em&gt; with whatever port yours is connected to&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;esptool.py &lt;span class=&quot;nt&quot;&gt;--chip&lt;/span&gt; esp32 &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 erase_flash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, get the new firmware flash here: &lt;a href=&quot;https://micropython.org/download#esp32&quot;&gt;MicroPython for Esp32&lt;/a&gt;
-I’ve downloaded the very first “Generic” one but you can choose whichever that fits your requirement.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Note: Some of the firwares only have WiFi support or only Bluetooth support, so take note&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After downloading the file, navigate your terminal to the location of the downloaded file and run the following&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;esptool.py &lt;span class=&quot;nt&quot;&gt;--chip&lt;/span&gt; esp32 &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 &lt;span class=&quot;nt&quot;&gt;--baud&lt;/span&gt; 460800 write_flash &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; 0x1000 esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Similarly, change &lt;em&gt;“COM8”&lt;/em&gt; to your own port number and &lt;em&gt;“esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin”&lt;/em&gt; to the firmware you download.&lt;/p&gt;
-
-&lt;p&gt;Now for testing!&lt;/p&gt;
-
-&lt;h3 id=&quot;repl-on-esp32-micropython&quot;&gt;REPL on Esp32 MicroPython&lt;/h3&gt;
-
-&lt;p&gt;on windows terminal install rshell&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rshell
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;then run repl in rshell&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rshell
-connect serial COM8
-repl
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;again, change COM8 to your port number.
-If everything works, the MicroPython interpreter will show up! Congratz!&lt;/p&gt;
-
-&lt;h3 id=&quot;flashing-scripts-to-esp32&quot;&gt;Flashing scripts to Esp32&lt;/h3&gt;
-
-&lt;p&gt;To have a permanent script that runs everytime the Esp32 boots, we will use another package.
-Run the following in terminal.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ampy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;now create a &lt;em&gt;“main.py”&lt;/em&gt; file somewhere and navigate your terminal to it.
-We are going to use pin 21 to blink an LED so add the following code in main.py&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep_ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;p21&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep_ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Save the file and in your terminal, run the following&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ampy &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; COM8 put main.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;yet again, change &lt;em&gt;COM8&lt;/em&gt; to your own port number.&lt;/p&gt;
-
-&lt;p&gt;Connect pin 21 to a resistor and the resistor to the positive leg of the LED and the negative leg of the LED to GND.&lt;/p&gt;
-
-&lt;p&gt;Reset your Esp32 and it should blink! Congratz!&lt;/p&gt;</content><author><name></name></author><summary type="html">“Flashing MicroPython to the Esp32 for Windows”</summary></entry><entry><title type="html">MicroPython, MicroBit and VSCode</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython, MicroBit and VSCode" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;p&gt;“Installing MicroPython with MicroBit support for VSCode”&lt;/p&gt;
+&lt;p&gt;That’s all and enjoy using VSCode!!&lt;/p&gt;</content><author><name></name></author><summary type="html">VSCode is a powerful text editor which capabilities can be enhance through various extensions. With the Micropython IDE extension installed it is a viable alternative to Thonny and MuEditor. In this guide I am using the Esp32 and running Linux (Manjaro) as my OS, differences in steps might be expected if your configuration is different.</summary></entry><entry><title type="html">MicroPython, MicroBit and VSCode</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython, MicroBit and VSCode" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;p&gt;“Installing MicroPython with MicroBit support for VSCode”&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Search for “Micro-bit” in the Marketplace and get the english looking one&lt;/li&gt;
