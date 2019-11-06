@@ -35,4 +35,23 @@ After downloading the file, navigate your terminal to the location of the downlo
 esptool.py --chip esp32 --port COM8 --baud 460800 write_flash -z 0x1000 esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin
 ```
 
-Similarly, change "COM8" to your own port number and "esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin" to the firmware you download
+Similarly, change "COM8" to your own port number and "esp32-idf3-20191105-v1.11-558-gd209f9ebe.bin" to the firmware you download.
+
+Now for testing!
+
+on windows terminal install rshell
+
+```bash
+pip install rshell
+```
+
+then run repl in rshell
+
+```bash
+rshell
+connect serial COM8
+repl
+```
+
+again, change COM8 to your port number.
+If everything works, the MicroPython interpreter will show up! Congratz!
