@@ -123,9 +123,13 @@ Equipment List:
   
   ![](images/t100.jpg)
 
+**Week 4**
 
+Flashing of micropython on ESP32 and controlled LED: https://learn.adafruit.com/micropython-basics-blink-a-led/blink-led
 
+![](images/esp32blink.png)
 
+<img src="images/blink.gif" width="100%">
 
 
 
