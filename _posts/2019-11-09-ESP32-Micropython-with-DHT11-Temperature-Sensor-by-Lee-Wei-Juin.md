@@ -1,5 +1,3 @@
-ESP32,Micropython with DHT11 Temperature Sensor by Lee Wei Juin
-===
 GO TO https://github.com/weijuinlee/esp32micropythondht11
 
 Here’s a list of parts you need to build the circuit:
