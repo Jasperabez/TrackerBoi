@@ -1,4 +1,4 @@
-GO TO https://github.com/weijuinlee/esp32micropythondht11
+GO TO <a href="https://github.com/weijuinlee/esp32micropythondht11">https://github.com/weijuinlee/esp32micropythondht11</a>
 
 Here’s a list of parts you need to build the circuit:
  1. DHT11 or DHT22 temperature and humidity sensor
@@ -26,8 +26,3 @@ while True:
     print('Failed to read sensor.')
 
 ```
-**Circuit:**
-![Images](images/dht11.jpeg)
-
-**Console:**
-<img src="images/vscode.png" width="100%">
