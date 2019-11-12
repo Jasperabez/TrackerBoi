@@ -112,13 +112,13 @@ while True:
 
 What were your problems and how did i fix the bugs:
 
- 1. As there are 5 scenarios for the player to win,I had to think about how to determining if the player has won. For know, I have simply checked the status of the board to all 5 scenarios
+ 1. As there are 5 scenarios for the player to win,I had to think about how to determining if the player has won. For now, I have simply checked the status of the board for all 5 scenarios.
 
- 2. To prevent the pointer from going out of list, I simply checked and set a minimum and maximum to the pointer range
+ 2. To prevent the pointer from going out of list, I simply checked and set a minimum and maximum to the pointer range.
 
 My obstacles:
 
- 1. Understanding the logic behind the game
+ 1. Understanding the logic behind the game.
 
 Tips to the aspiring coders out there:
 
