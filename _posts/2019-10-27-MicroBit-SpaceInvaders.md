@@ -9,13 +9,13 @@ Useful links for Thonny IDE:
  * Complete guide to downloading and setting up Thonny IDE
  * Basic walk-through into simple arithmetic and functions
 
-[![](http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg)](http://www.youtube.com/watch?v=dGvQPp0zEM4 "")
+[![alt text](http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg)](http://www.youtube.com/watch?v=dGvQPp0zEM4 "thonnyvideo")
 
  * Knowing that themes are so **critical** to programmers, this video guides you to select your preferred look in Thonny IDE
 
 Useful links to learn Python:
 
-[![](http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg)](http://www.youtube.com/watch?v=yE9v9rt6ziw "")
+[![alt text](http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg)](http://www.youtube.com/watch?v=yE9v9rt6ziw "pythonvideo")
 
  * Illustrative programming educational material - Clear and Concise
  * Includes programming exercises, questions and cheat sheet
@@ -24,7 +24,7 @@ Useful links to learn Python:
 
 **Demo Video:**
 
-[![alt text](http://img.youtube.com/vi/H4Yo7XGbGSM/0.jpg)](https://www.youtube.com/watch?v=H4Yo7XGbGSM "title")
+[![alt text](http://img.youtube.com/vi/H4Yo7XGbGSM/0.jpg)](https://www.youtube.com/watch?v=H4Yo7XGbGSM "spaceimagedemo")
 
 **Code:**
 
