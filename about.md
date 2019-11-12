@@ -1,5 +1,3 @@
-# About Us
-
 ![](images/rifaaie.jpg)
 
 **Ahmad Rifaaie Bin Mohamed Ali, CTO**
