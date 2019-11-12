@@ -1,21 +1,21 @@
 GO TO <a href="https://github.com/weijuinlee/EA_Projects">hhttps://github.com/weijuinlee/EA_Projects</a>
 
-**New to python?**
+New to python?
 
 Useful links for Thonny IDE:
 
-[![](http://img.youtube.com/vi/lWaCl0WjNZI/0.jpg)](http://www.youtube.com/watch?v=lWaCl0WjNZI "")
+[![alt text](http://img.youtube.com/vi/lWaCl0WjNZI/0.jpg)](http://www.youtube.com/watch?v=lWaCl0WjNZI "thonnyintrovideo")
 
  * Complete guide to downloading and setting up Thonny IDE
  * Basic walk-through into simple arithmetic and functions
 
-[![alt text](http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg)](http://www.youtube.com/watch?v=dGvQPp0zEM4 "thonnyvideo")
+[![alt text](http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg)](http://www.youtube.com/watch?v=dGvQPp0zEM4 "thonnythemevideo")
 
  * Knowing that themes are so **critical** to programmers, this video guides you to select your preferred look in Thonny IDE
 
 Useful links to learn Python:
 
-[![alt text](http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg)](http://www.youtube.com/watch?v=yE9v9rt6ziw "pythonvideo")
+[![alt text](http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg)](http://www.youtube.com/watch?v=yE9v9rt6ziw "pythonintrovideo")
 
  * Illustrative programming educational material - Clear and Concise
  * Includes programming exercises, questions and cheat sheet
