@@ -138,5 +138,34 @@ Congratulations! You managed to complete the required steps for the assignment. 
 ![](../images/mechanicalgraph.png)
 
 
+For the Bonus Step, to calculate the maximum possible incline, you will have to find the maximum tractive torque, which is the vehicle's maximum load it can take when in motion. 
+
+From there, treat the maximum tractive torque value as your torque wheel value and work backwards to get the maximum possible angle your vehicle can go.
+
+Credits to Wen Da for recommending this method to me.
+
+MTT = Ww [N] x μ [-] x Rw [m]
+         
+    = 44.7336N/ 1(powered wheel) * 0.85 * 0.025
+    = 0.950589Nm
+
+Treat Tw as value of MTT,
+
+Tw = TTE * Rw * RF
+   
+    0.950589 = TTE * 0.025 * 1.1
+   
+    TTE =  34.5668727N
+    
+TTE [N] = RR [N] + GR [N] + FA [N] (All values are fixed from above, be sure to inverse sin!)
+
+    34.5668727N = 0.447336N + 44.7336N * sin(θ) + 4.49468712N
+    
+    Maximum Possible Incline, θ = 41.5 °
+
+
+And hence, the bonus step is complete! Hope you all had a great time going through this :)
+
+
 
 
