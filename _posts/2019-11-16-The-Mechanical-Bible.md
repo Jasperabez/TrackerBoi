@@ -27,6 +27,13 @@ Formulas:
 
 **Maximum Tractive Torque(N)** = Weight on drive wheel(N) x static friction coeff between wheel and ground x radius of wheel(N)
 
+Constants:
+
+**Radius of track vehicle wheel** = 0.025m
+
+**Constant to convert rpm to m/s** = 0.10472
+
+
 After familiarizing with the formulas, here are the steps to take to calculate all the mechanical aspects, all the way to Wheel Torque. I will use my own calculations to show you
 
 <u>**STEP 1: CALCULATING VMAX(MAXIMUM SPEED)**</u>
