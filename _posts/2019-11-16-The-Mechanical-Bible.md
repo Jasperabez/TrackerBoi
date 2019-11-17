@@ -57,6 +57,7 @@ Weight of Groceries =
     + (1500)g (Pasar Fresh Eggs)
     = 3560g 
     = 3.56kg  
+
 Total Weight = 
 
     (1000)g + (3560)g 
@@ -65,7 +66,7 @@ Total Weight =
 
 
 
-<u>**STEP 4: CALCULATING WHEEL TORQUE(TW) VALUe**</u>
+<u>**STEP 4: CALCULATING WHEEL TORQUE(TW) VALUE**</u>
 
 There will be many steps involved in this, which is the calculation of Rolling Resistance, Grade Resistance, Acceleration Force, Total Tractive Effort and finally, Wheel Torque.
 
