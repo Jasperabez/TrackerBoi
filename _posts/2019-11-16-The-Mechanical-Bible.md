@@ -79,8 +79,8 @@ There will be many steps involved in this, which is the calculation of Rolling R
 
 **Rolling Resistance(Rr) [N]** = Gross Weight of Vehicle(Gw)[N] x Surface Friction Coeff(SFc)
      
-    = 4.56kg * 9.81(convert to Force(N)) (44.7336N) * 0.1 (Good Concrete Contact Surface)
-    = 4.47336N
+    = 4.56kg * 9.81(convert to Force(N)) (44.7336N) * 0.01 (Good Concrete Contact Surface)
+    = 0.447336N
      
 **Grade Resistance(GR) [N]** = Gross Weight of Vehicle(WGV) [N] x sin(θ)(degrees)
    
@@ -94,8 +94,8 @@ There will be many steps involved in this, which is the calculation of Rolling R
 
 **Total Tractive Effort [N]** = Rolling Resistance [N] + Grade Resistance [N] + Acceleration Force [N]
                   
-    = 4.47336N + 20.005 N + 4.49468712N
-    = 28.97304712N
+    = 0.447336N + 20.005 N + 4.49468712N
+    = 24.49968712N 
 
  Lastly, **Wheel Torque[Nm]** = Total Tractive Effort [N] x Radius of Wheel[m] x Resistance Factor [-] 
                     
