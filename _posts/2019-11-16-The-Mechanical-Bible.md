@@ -81,10 +81,18 @@ There will be many steps involved in this, which is the calculation of Rolling R
      
     = 4.56kg * 9.81(convert to Force(N)) (44.7336N) * 0.01 (Good Concrete Contact Surface)
     = 0.447336N
-     
+
+Using a BCA website found by Hans, I used the following to determine the θ for my calculation of grade resistance(Note that the θ is in degrees!)
+
+tan(θ) = 1/2
+
+θ = tan^-1(1/2)
+
+θ = **26.565°**
+
 **Grade Resistance(GR) [N]** = Gross Weight of Vehicle(WGV) [N] x sin(θ)(degrees)
    
-    = 44.7336N * sin(26.565 °)
+    = 44.7336N * sin(26.565°)
     = 20.005 N 
 
 **Acceleration Force [N]** = Gross Weight of Vehicle(WGV) [N] x Vmax [m/s] / (32.2 [m/s^2 ] x Time [s]) 
@@ -135,6 +143,8 @@ Finally, to set up the best-fit line, select the + symbol when you click on your
 
 Congratulations! You managed to complete the required steps for the assignment. The bonus question is still a work in progress.
 
+Extra Notes: You can try to increase the amount of points, acceleration time, to better describe your graph. I personally just went until 5 points, which is 5 seconds, to show this.
+
 ![](../images/mechanicalgraph.png)
 
 
@@ -165,6 +175,16 @@ TTE [N] = RR [N] + GR [N] + FA [N] (All values are fixed from above, be sure to 
 
 
 And hence, the bonus step is complete! Hope you all had a great time going through this :)
+
+
+**DISCLAIMER:**
+
+My calculations are based on the formulas given in the sheet by Mr Tune on Blackboard including some basic physics formulas with a mix of mechanics.
+
+Do note that some of your calculation may differ here and there, my recommended benchmark is to not exceed 45 degrees for maximum possible incline, as I personally feel it is not very logical from a physics point of view in terms of centre of gravity and traction required. 
+
+Finally, do not be stressed if your calculations are different, factors such as Gross Weight of Vehicle, Grade Resistance, etc, may differ as we have different values for them.
+
 
 
 
