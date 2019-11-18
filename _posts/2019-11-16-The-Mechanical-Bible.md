@@ -109,6 +109,10 @@ tan(θ) = 1/2
                     
     = 28.97304712N * 0.025m * 1.1
     = 0.7967587958Nm
+    
+**DISCLAIMER:** 
+
+Important! Please ensure your motor gcm/mNm which is your maximum output torque is less than the wheel torque! This is to ensure that the output torque of your motor is sufficient to ensure that it can move with the gross weight applied.
 
 
 
@@ -180,6 +184,8 @@ And hence, the bonus step is complete! Hope you all had a great time going throu
 **DISCLAIMER:**
 
 My calculations are based on the formulas given in the sheet by Mr Tune on Blackboard including some basic physics formulas with a mix of mechanics.
+
+Also, these calculation are mean for show, this is my first draft of calculation for the vehicle so the numbers do not accurately represent my final product.
 
 Do note that some of your calculation may differ here and there, my recommended benchmark is to not exceed 45 degrees for maximum possible incline, as I personally feel it is not very logical from a physics point of view in terms of centre of gravity and traction required. 
 
