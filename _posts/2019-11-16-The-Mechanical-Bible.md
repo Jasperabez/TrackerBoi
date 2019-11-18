@@ -112,7 +112,7 @@ tan(θ) = 1/2
     
 **DISCLAIMER:** 
 
-Important! Please ensure your motor gcm/mNm which is your maximum output torque is less than the wheel torque! This is to ensure that the output torque of your motor is sufficient to ensure that it can move with the gross weight applied.
+Important! Please ensure your motor gcm/mNm which is your **maximum output torque** is more than the **wheel torque**! This is to ensure that the output torque of your motor is sufficient to ensure that it can move with the gross weight applied.
 
 
 
