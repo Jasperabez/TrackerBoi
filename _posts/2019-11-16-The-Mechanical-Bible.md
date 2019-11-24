@@ -3,8 +3,6 @@ layout: post
 title: Mechanical Bible
 ---
 
-
-# The Mechanical Bible
 "God once said 'Let there be physics', hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs"
 
 Formulas:
