@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: References 
 ---
@@ -10,22 +10,15 @@ title: References
 ## For Electrical Related
 
 * http://esp32.net/
-
 * https://en.wikipedia.org/wiki/ESP32
-
 * https://docs.micropython.org/en/latest/esp32/tutorial/intro.html
-
 * https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/overview
-
 * https://github.com/espressif/esptool
-
 * http://micropython.org/download#esp32
-
 * https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/
-
 * https://dronebotworkshop.com/dc-motors-l298n-h-bridge/
-
 * https://components101.com/microcontrollers/esp32-devkitc
+*  https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators 
 
 ## For Mechanical Related
 
