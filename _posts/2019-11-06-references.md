@@ -21,6 +21,7 @@ title: References
 *  https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators 
 *   https://www.youtube.com/user/rdagger68  (Circuit and Coding guides)
 *   https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ  (ESP32 Guide Channel, Andreas Spiess)
+*   https://www.youtube.com/watch?v=hi8iDy7jsOg (Lithium Ion Battery Charger)
 
 ## For Mechanical Related
 

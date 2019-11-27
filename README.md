@@ -83,7 +83,7 @@ Motor parameters(25mm 9V 150rpm DC Motor, has hall sensor):
  * Dia. Of Shaft phi4mm, D3.5
 
  * encoder: 2 pulses/circle
- 
+
 
 Equipment List:
 
@@ -100,11 +100,11 @@ Equipment List:
 **Assembly of T100:**
 
   1. <br/>
-  
+
   ![](images/wheels.jpg)
 
   2. <br/>
-  
+
   ![](images/bolts.jpg)
 
   3. <br/>
@@ -112,7 +112,7 @@ Equipment List:
   ![](images/frames.jpg)
 
   4. <br/>
-  
+
   ![](images/assem1.jpg)
 
   5. <br/>
@@ -120,7 +120,7 @@ Equipment List:
   ![](images/rif.jpg)
 
   6. <br/>
-  
+
   ![](images/t100.jpg)
 
 **Week 4**
@@ -141,9 +141,114 @@ Tutorial on mechanical drawing on Fusion 360.
 
 **Week 7**
 
-Clas on Power Management.
+Class on Power Management.
 
+**P = IV(W)**
 
+**How do we measure?**
+
+* Voltmeter in Parallel
+
+* Current in series
+
+* Power Meter
+
+**Non- Evasive methods**
+
+* Clamp Meters
+
+* Shunts
+
+**Rectification**
+
+**AC-to-DC Conversion**
+
+* 230V AC to 3.3 ~ 24 DC
+
+  **Linear Rectification**
+
+  * Simple, cheap
+
+  * Losses
+
+  * Weight
+
+    
+
+**Switch Mode Power Supplies**
+
+Main Input -> Input rectifier -> Inverter "Chopper" -> Output Transformer -> Output rectifier and filter -> DC Output / Chopper Controller -> Inverter "Chopper"
+
+#EEVblog90
+
+**Linear Power Supply**
+
+* Simplicity
+* Quiet Operation and load-handling capacity
+* Low cost
+* Range of application
+* Number of Outputs
+* Average Efficiency
+
+**Switch Mode Power Supply**
+
+* High Efficiency
+* Low  cost and size
+* Complicated design
+* Cost compared with Linear Rectification
+
+**Typical DC Power Supply**
+
+* Large mains transformer provides isolation
+* Rectifier converts AC to DC using diodes
+* Filter circuits (using capacitors) remove variations/ ripple in the signal producing a smooth DC
+* Regulators maintain a constant voltage level
+
+**Series Transistor Regulator Circuit**
+
+* Uses transistor and DC biasing to set output voltage
+* Emitter Follower circuit has unity voltage gain, hence with suitable biasing a stable output voltage can be obtained
+* Input voltage must be sufficiently high enough to get the desired output voltage (approx. 0.7V is dropped across base and emitter terminals)
+* Problems
+  * Heat from power dissipation(I*V)
+  * Only applicable in low power output applications
+  * Weight of isolation transformer
+
+Examples: Travel adapters
+
+**Switch Mode Power Supplies**
+
+* SMPS becoming the more common ac-to-dc supply
+* Use a semiconductor switching technique
+* Consists of a power switching stage and a control circuit with output filtration
+* Advantages:
+  * Higher efficiency with low power dissipation
+  * Can offer step-up or step-down and negation of input voltage
+
+**Buck Switch Mode Power Supply**
+
+* Efficiently reduce DC voltage from a higher voltage to a lower one
+* Does not change the polarity
+* A DC-to-DC converter and a switching regulator
+* Boost converter needed to boost voltage higher
+
+**Application of SMPS**
+
+* Buck Converters
+  * Efficient method to convert High DC to Low DC voltages
+  * Cost effective
+
+* Boost Converters
+  * Converts Low DC to High DC voltages
+  * Most commonly used in Li-ion battery banks (3.74V to 5V)
+
+**Power for our project**
+
+Youtube: Dronebot Workshop
+
+Article:
+
+Only use one charger for battery
 
 
 
