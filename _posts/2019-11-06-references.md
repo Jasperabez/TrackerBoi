@@ -19,6 +19,8 @@ title: References
 * https://dronebotworkshop.com/dc-motors-l298n-h-bridge/
 * https://components101.com/microcontrollers/esp32-devkitc
 *  https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators 
+*   https://www.youtube.com/user/rdagger68  (Circuit and Coding guides)
+*   https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ  (ESP32 Guide Channel, Andreas Spiess)
 
 ## For Mechanical Related
 
