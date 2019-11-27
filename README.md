@@ -131,8 +131,17 @@ Flashing of micropython on ESP32 and controlled LED: https://learn.adafruit.com/
 
 <img src="images/blink.gif" width="100%">
 
+**Week 5**
 
+ESP 32 documentation brief.
 
+**Week 6**
+
+Tutorial on mechanical drawing on Fusion 360.
+
+**Week 7**
+
+Clas on Power Management.
 
 
 
