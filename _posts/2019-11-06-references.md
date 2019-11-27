@@ -22,6 +22,7 @@ title: References
 *   https://www.youtube.com/user/rdagger68  (Circuit and Coding guides)
 *   https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ  (ESP32 Guide Channel, Andreas Spiess)
 *   https://www.youtube.com/watch?v=hi8iDy7jsOg (Lithium Ion Battery Charger)
+*   https://www.youtube.com/watch?v=43-N4RQhtp0 
 
 ## For Mechanical Related
 
@@ -37,3 +38,5 @@ title: References
 ## For Others
 
 * https://github.com/barryclark/jekyll-now (Jekyll Pages Guide)
+*  https://www.kickstarter.com/projects/rorymackean/tertill-the-solar-powered-weeding-robot-for-home-g  (Tertill Project)
+
