@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Esp32 Micropython With DHT11 Temperature Sensor – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="GO TO https://github.com/weijuinlee/esp32micropythondht11
+
+" />
+    <meta property="og:description" content="GO TO https://github.com/weijuinlee/esp32micropythondht11
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="Esp32 Micropython With DHT11 Temperature Sensor" />
+    <meta property="twitter:title" content="Esp32 Micropython With DHT11 Temperature Sensor" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Esp32 Micropython With DHT11 Temperature Sensor</h1>
+
+  <div class="entry">
+    <p>GO TO <a href="https://github.com/weijuinlee/esp32micropythondht11">https://github.com/weijuinlee/esp32micropythondht11</a></p>
+
+<p>Here’s a list of parts you need to build the circuit:</p>
+<ol>
+  <li>DHT11 or DHT22 temperature and humidity sensor</li>
+  <li>10k Ohm resistor</li>
+  <li>Breadboard</li>
+  <li>Jumper wires</li>
+</ol>
+
+<p><strong>Code:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">dht</span> 
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT22</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">))</span>
+<span class="c1">#sensor = dht.DHT11(Pin(14))
+</span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span><span class="o">-</span><span class="mi">590</span>
+    <span class="n">hum</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1600</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Temperature: </span><span class="si">%</span><span class="s">f C'</span> <span class="o">%</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Humidity: </span><span class="si">%3.1</span><span class="s">f </span><span class="si">%%</span><span class="s">'</span> <span class="o">%</span><span class="n">hum</span><span class="p">)</span>
+  <span class="k">except</span> <span class="nb">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed to read sensor.'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+  </div>
+
+  <div class="date">
+    Written on November  9, 2019
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

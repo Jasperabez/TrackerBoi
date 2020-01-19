@@ -1,34 +1,717 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2019-11-06T11:47:15+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">References</title><link href="http://localhost:4000/TrackerBoi/references/" rel="alternate" type="text/html" title="References" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/references</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/references/">&lt;p&gt;“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/TrackerBoi/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/TrackerBoi/" rel="alternate" type="text/html" /><updated>2020-01-19T23:30:05+08:00</updated><id>http://localhost:4000/TrackerBoi/feed.xml</id><title type="html">TrackerBoi</title><subtitle>Seedlings Madness</subtitle><entry><title type="html">Simple Webserver On ESP32 Micropython</title><link href="http://localhost:4000/TrackerBoi/Simple-Webserver-On-ESP32-Micropython/" rel="alternate" type="text/html" title="Simple Webserver On ESP32 Micropython" /><published>2020-01-19T00:00:00+08:00</published><updated>2020-01-19T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Simple-Webserver-On-ESP32-Micropython</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Simple-Webserver-On-ESP32-Micropython/">&lt;p&gt;Don’t you want to remote control your esp32 robot? read this guide then :)&lt;/p&gt;
+
+&lt;h1 id=&quot;network&quot;&gt;Network&lt;/h1&gt;
+
+&lt;p&gt;Can either choose to connect to a common access point(AP) or use the ESP32 itself as an AP&lt;/p&gt;
+
+&lt;h2 id=&quot;common-ap&quot;&gt;Common AP&lt;/h2&gt;
+
+&lt;p&gt;Put the code below into your boot.py&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;do_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;network&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WLAN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STA_IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isconnected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'connecting to network...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;essid&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&amp;lt;password&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isconnected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'network config:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sta_if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ifconfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;esp32-as-ap&quot;&gt;ESP32 as AP&lt;/h2&gt;
+
+&lt;p&gt;Put the code below into your boot.py and PLEASE note authmode have to be set to 3 else your AP is unencrpyted&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;do_ap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;network&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ssid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'IAM_AP'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'IAMPassword'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;authmode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# WPA2
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;ap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WLAN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AP_IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;essid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authmode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authmode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Connection successful'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ifconfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can include both if your boot.py and just call the function accordingly depending on your needs&lt;/p&gt;
+
+&lt;h1 id=&quot;webserver&quot;&gt;Webserver&lt;/h1&gt;
+
+&lt;p&gt;The following code is largely taken from &lt;a href=&quot;https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/&quot;&gt;random nerd tutorials&lt;/a&gt; with some modifications. I’m using do_connect over here but you can choose to use do_ap if you wish. Copy and dump the code in your main.py.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;do_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;usocket&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;socket&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;esp&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;esp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;osdebug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gc&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Stop&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;web_page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+  
+  &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    &amp;lt;html&amp;gt;
+        &amp;lt;head&amp;gt; 
+            &amp;lt;title&amp;gt;ESP Web Server&amp;lt;/title&amp;gt;
+            &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
+            &amp;lt;link rel=&quot;icon&quot; href=&quot;data:,&quot;&amp;gt; 
+            &amp;lt;style&amp;gt;
+                html{font-family: Helvetica; display:inline-block; margin: 0px auto; text-align: center;}
+                h1{color: #0F3376; padding: 2vh;}p{font-size: 1.5rem;}
+                .button{display: inline-block; background-color: #e7bd3b; border: none; border-radius: 4px; color: white;  padding: 16px 40px; text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
+                .buttonStop{background-color: red;}
+            &amp;lt;/style&amp;gt;
+        &amp;lt;/head&amp;gt;
+        &amp;lt;body&amp;gt; 
+            &amp;lt;h1&amp;gt;ESP Web Server&amp;lt;/h1&amp;gt; 
+                &amp;lt;p&amp;gt;Robot state: &amp;lt;strong&amp;gt;&quot;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;&amp;lt;a href=&quot;/?robot=stop&quot;&amp;gt;&amp;lt;button class=&quot;button buttonStop&quot;&amp;gt;STOP&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;&amp;lt;a href=&quot;/?robot=forward&quot;&amp;gt;&amp;lt;button class=&quot;button&quot;&amp;gt;FORWARD&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;&amp;lt;a href=&quot;/?robot=backward&quot;&amp;gt;&amp;lt;button class=&quot;button&quot;&amp;gt;BACKWARD&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;&amp;lt;a href=&quot;/?robot=right&quot;&amp;gt;&amp;lt;button class=&quot;button&quot;&amp;gt;RIGHT&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+                &amp;lt;p&amp;gt;&amp;lt;a href=&quot;/?robot=left&quot;&amp;gt;&amp;lt;button class=&quot;button&quot;&amp;gt;LEFT&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+        &amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+    &quot;&quot;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AF_INET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SOCK_STREAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Got a connection from &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Content = &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;robot_stop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/?robot=stop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;robot_forward&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/?robot=forward'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;robot_backward&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/?robot=backward'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;robot_right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/?robot=right'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;robot_left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/?robot=left'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_stop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'robot stopping...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Stop&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_forward&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'robot advancing forward...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Forward&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_backward&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'robot retreating backward...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Backward&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'robot turning right...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Right&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;robot_left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'robot turning left...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;robot_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Left&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;web_page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'HTTP/1.1 200 OK&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Content-Type: text/html&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Connection: close&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The code should be pretty straight forward, but the reason why all the robot states == 6 is because when you use find for the specific href on the original http request it would give you the index at 6 always. That is if it exist, on the other hand if it doesn’t it returns 0.&lt;/p&gt;
+
+&lt;p&gt;If you want the code to interact with real electronics, just replace the print statement “robot ……” to code that interacts with the pins&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;that’s pretty much it, I’ll soon make a guide that showcase how to host a webserver on your ESP32 using a flask, django like library called picoweb&lt;/p&gt;</content><author><name></name></author><summary type="html">Don’t you want to remote control your esp32 robot? read this guide then :)</summary></entry><entry><title type="html">Basic 10</title><link href="http://localhost:4000/TrackerBoi/Basic-10/" rel="alternate" type="text/html" title="Basic 10" /><published>2019-11-25T00:00:00+08:00</published><updated>2019-11-25T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Basic-10</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Basic-10/">&lt;p&gt;This is an introduction to basic Fan In/Out, Signal Level Conversion and Output in a Microcontroller set-up.&lt;/p&gt;
+
+&lt;h1 id=&quot;fan-in--out&quot;&gt;Fan In / Out&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Fan-in&lt;/strong&gt;: Maximum number of input a single gate can accept.
+&lt;strong&gt;Fan-out&lt;/strong&gt;: Maximum number of load gate connected to the output of a single gate before signal degradation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/Basic10/fanin_fanout.webp&quot; width=&quot;300&quot; height=&quot;230&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;voltage-limit&quot;&gt;Voltage Limit&lt;/h1&gt;
+
+&lt;p&gt;Voltage limit is defined by the maximum or minimum steady-state voltage limit. Meaning if the voltage given to the hardware is lower or higher than the voltage limit specified by the hardware, is might not work (under voltage) or overheat and burn (over voltage).&lt;/p&gt;
+
+&lt;p&gt;For example, the Esp32 is rated for a 2.2V to 3.6V operation voltage limit. Its GPIO is rated for 3.3V input/ouput&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;NOT&lt;/strong&gt; 5V like Arduino&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;transducers&quot;&gt;Transducers&lt;/h1&gt;
+
+&lt;p&gt;Sensors and transducers are considered as energy conversion devices which receive a physical data such as temperature, pressure or light intensity and generate an electrical signal such as voltage depending on the type of transducer. Transducers can then be divided into two categories: &lt;strong&gt;Active&lt;/strong&gt; or &lt;strong&gt;Passive&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;active&quot;&gt;Active&lt;/h3&gt;
+
+&lt;p&gt;An active transducer generates electrical signal in response to the physical parameter and does not require electrical energy in doing so.&lt;/p&gt;
+
+&lt;h4 id=&quot;example-piezoelectric-sensor&quot;&gt;Example: Piezoelectric sensor&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/piezo.jpg&quot; width=&quot;300&quot; height=&quot;150&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;passive&quot;&gt;Passive&lt;/h3&gt;
+
+&lt;p&gt;A passive transducer requires external energy for it’s operation.&lt;/p&gt;
+
+&lt;h4 id=&quot;example-photoconductive-devices&quot;&gt;Example: Photoconductive Devices&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/ldr.jpg&quot; width=&quot;300&quot; height=&quot;150&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;switch-onoff&quot;&gt;Switch (On/Off)&lt;/h4&gt;
+
+&lt;p&gt;The resistive passive sensor changes value (electrical) when the physical quantity (e.a. temperature, force, light etc) changes. These sensors can (generally) be used in combination with an extra resistor, like described above. The most common sensor is a switch. A switch is actually a resistor with two states: infinite and zero. When a switch has to be connected to the analog input of a sensor-interface, the same series resistor as mentioned before is needed.&lt;/p&gt;
+
+&lt;p&gt;A good value of the series resistor R1 will be between 10K-50K. In rest situation (switch is not pushed), the output will be +5V. When the switch is pushed, the resistance will be zero (shortcut to gnd) and the output voltage will be 0V.&lt;/p&gt;
+
+&lt;p&gt;Things to consider when choosing a transducer:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Linearity&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sensitivity&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dynamic range&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Repeatability&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Physical Size&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;output&quot;&gt;Output&lt;/h1&gt;
+
+&lt;p&gt;To interface your Microcontroller(ESP32) and your Electronics(Transducers and Actuators) using micropython make sure your have the micropython environment setup if not you can refer to one of our many guides. In this guide I will showing how to interface &lt;strong&gt;actuators&lt;/strong&gt; primarily &lt;strong&gt;LED&lt;/strong&gt; and a &lt;strong&gt;DC motor&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;h2 id=&quot;led&quot;&gt;LED&lt;/h2&gt;
+
+&lt;h3 id=&quot;components-needed&quot;&gt;Components needed:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;ESP32&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5mm LED (any color except blue or white)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Resistor (range 100-200ohms)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;breadboard (optional)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;do take note that ESP32 voltage output is &lt;strong&gt;3.3V&lt;/strong&gt;, LED voltage is normally &lt;strong&gt;2V&lt;/strong&gt; and our max current is assumed to be &lt;strong&gt;20mA&lt;/strong&gt;, hence using formula of &lt;strong&gt;R=V/I&lt;/strong&gt; we obtain our optimal range but you can adjust the resistor value accordingly if so desired.&lt;/p&gt;
+
+&lt;h3 id=&quot;schematic&quot;&gt;Schematic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/TrackerBoi/images/Basic10/led_fritzdiag.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/TrackerBoi/images/Basic10/led_circuitdiag.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wire up the LED accordingly, I’m using pin 26 you can choose other pins if so wish&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;All code is to be written in main.py file&lt;/p&gt;
+
+&lt;h4 id=&quot;led-onoff&quot;&gt;LED On/Off&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p26&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p26&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#P26.value(0) to off
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see it’s just simple On/Off, how about adjusting the brightness?&lt;/p&gt;
+
+&lt;h4 id=&quot;led-onoff--brightness&quot;&gt;LED On/Off + brightness&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PWM&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p26&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pwm26&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PWM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#LED will turn on at this point
+#freq can be adjusted accordingly
+#duty value ranges from 0-1023 so 512 is 50% duty cycle
+#duty value directly correlate with brightness
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The adjusting of brightness is done via PWM you can read up more on &lt;a href=&quot;https://docs.micropython.org/en/latest/esp8266/tutorial/pwm.html&quot;&gt;Micropython site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;dc-motor&quot;&gt;DC Motor&lt;/h2&gt;
+
+&lt;h3 id=&quot;components-needed-1&quot;&gt;Components needed:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;ESP32&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5V power supply/battery&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5V DC Motor&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;220 Ohm resistor&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Transistor P2N2222A&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Diode 1N4148&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;breadboard (optional)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If needed swap out the resistor, transistor, and diode by following this &lt;a href=&quot;https://electronicsclub.info/transistorcircuits.htm&quot;&gt;guide&lt;/a&gt; by electronics club.&lt;/p&gt;
+
+&lt;h3 id=&quot;schematic-1&quot;&gt;Schematic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/TrackerBoi/images/Basic10/motor_fritzdiag.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/TrackerBoi/images/Basic10/motor_circuitdiag.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;wire up the motor accordingly, instead of using pin 26 I’m using pin 21 here. The reasoning behind using a transistor and external power supply is that the motor have much higher current and voltage requirement than the ESP32 can supply, additionally the diode acts as a flyback diode to reduce back emf from the motor.&lt;/p&gt;
+
+&lt;h3 id=&quot;code-1&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;to On/Off or control speed of motor, do refer back to the &lt;a href=&quot;#code&quot;&gt;LED section&lt;/a&gt; as its the same. Do however change the pin number to whatever pin that your transistor is connected to..&lt;/p&gt;</content><author><name></name></author><summary type="html">This is an introduction to basic Fan In/Out, Signal Level Conversion and Output in a Microcontroller set-up.</summary></entry><entry><title type="html">ESP32 Documentation</title><link href="http://localhost:4000/TrackerBoi/ESP32-101/" rel="alternate" type="text/html" title="ESP32 Documentation" /><published>2019-11-24T00:00:00+08:00</published><updated>2019-11-24T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/ESP32-101</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/ESP32-101/">&lt;p&gt;” Hello! Here are some of the stuff we did using our ESP32 as documentation”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/ESP32-DevKitC.jpg&quot; width=&quot;600&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to better understand the ESP32, we looked through some websites to know the pin configurations and functions that the module can do. Personally, it works similarly as any micro-controllers like the Arduino Uno, Raspberry Pi and such.&lt;/p&gt;
+
+&lt;p&gt;Below, I have given the pin configurations of the ESP32.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/ESP32-Pinout.png&quot; width=&quot;600&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pin-configuration&quot;&gt;&lt;strong&gt;Pin Configuration&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Pin Category&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Pin Name&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Details&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Power&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Micro-USB, 3.3V, 5V,&lt;/strong&gt; &lt;strong&gt;GND&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Micro-USB:&lt;/strong&gt; ESP32 can be powered through USB port&lt;strong&gt;5V:&lt;/strong&gt; Regulated 5V can be supplied to this pin which is we be again regulated to 3.3V by on board regulator, to power the board.&lt;strong&gt;3.3V:&lt;/strong&gt; Regulated 3.3V can be supplied to this pin to power the board.&lt;strong&gt;GND:&lt;/strong&gt; Ground pins.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enable&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;En&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The pin and the button resets the microcontroller.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Analog Pins&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ADC1_0 to ADC1_5 and ADC2_0 to ADC2_9&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Used to measure analog voltage in the range of 0-3.3V.12-bit 18 Channel ADC&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DAC pins&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;DAC1 and DAC2&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Used for Digital to analog Conversion&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Input/Output Pins&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;GPIO0 to GPIO39&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Totally 39 GPIO pins, can be used as input or output pins. 0V (low) and 3.3V (high). But pins 34 to 39 can be used as input only&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capacitive Touch pins&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;T0 to T9&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;These 10 pins can be used a touch pins normally used for capacitive pads&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RTC GPIO pins&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;RTCIO0 to RTCIO17&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;These 18 GPIO pins can be used to wake up the ESP32 from deep sleep mode.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Serial&lt;/td&gt;
+      &lt;td&gt;Rx, &lt;strong&gt;Tx&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Used to receive and transmit TTL serial data.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;External Interrupts&lt;/td&gt;
+      &lt;td&gt;All GPIO&lt;/td&gt;
+      &lt;td&gt;Any GPIO can be use to trigger an interrupt.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PWM&lt;/td&gt;
+      &lt;td&gt;All GPIO&lt;/td&gt;
+      &lt;td&gt;16 independent channel is available for PWM any GPIO can be made to work as PWM though software&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;VSPI&lt;/td&gt;
+      &lt;td&gt;GPIO23 (MOSI), GPIO19(MISO), GPIO18(CLK) and GPIO5 (CS)&lt;/td&gt;
+      &lt;td&gt;Used for SPI-1 communication.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HSPI&lt;/td&gt;
+      &lt;td&gt;GPIO13 (MOSI), GPIO12(MISO), GPIO14(CLK) and GPIO15 (CS)&lt;/td&gt;
+      &lt;td&gt;Used for SPI-2 communication.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IIC&lt;/td&gt;
+      &lt;td&gt;GPIO21(SDA), GPIO22(SCL)&lt;/td&gt;
+      &lt;td&gt;Used for I2C communication.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AREF&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;AREF&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;To provide reference voltage for input voltage.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;esp32-technical-specifications&quot;&gt;&lt;strong&gt;ESP32 Technical Specifications&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Microprocessor&lt;/th&gt;
+      &lt;th&gt;Tensilica Xtensa LX6&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Maximum Operating Frequency&lt;/td&gt;
+      &lt;td&gt;240MHz&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Operating Voltage&lt;/td&gt;
+      &lt;td&gt;3.3V&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Analog Input Pins&lt;/td&gt;
+      &lt;td&gt;12-bit, 18 Channel&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DAC Pins&lt;/td&gt;
+      &lt;td&gt;8-bit, 2 Channel&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Digital I/O Pins&lt;/td&gt;
+      &lt;td&gt;39 (of which 34 is normal GPIO pin)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DC Current on I/O Pins&lt;/td&gt;
+      &lt;td&gt;40 mA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DC Current on 3.3V Pin&lt;/td&gt;
+      &lt;td&gt;50 mA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SRAM&lt;/td&gt;
+      &lt;td&gt;520 KB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Communication&lt;/td&gt;
+      &lt;td&gt;SPI(4), I2C(2), I2S(2), CAN, UART(3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Wi-Fi&lt;/td&gt;
+      &lt;td&gt;802.11 b/g/n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bluetooth&lt;/td&gt;
+      &lt;td&gt;V4.2 – Supports BLE and Classic Bluetooth&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Credits to https://components101.com/microcontrollers/esp32-devkitc for providing this pin configuration layout and functions of the different pins and to  https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators  for giving the necessary instructions and basics regarding the ESP32 module.&lt;/p&gt;</content><author><name></name></author><summary type="html">” Hello! Here are some of the stuff we did using our ESP32 as documentation”</summary></entry><entry><title type="html">Mechanical Bible</title><link href="http://localhost:4000/TrackerBoi/The-Mechanical-Bible/" rel="alternate" type="text/html" title="Mechanical Bible" /><published>2019-11-16T00:00:00+08:00</published><updated>2019-11-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/The-Mechanical-Bible</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/The-Mechanical-Bible/">&lt;p&gt;“God once said ‘Let there be physics’, hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs”&lt;/p&gt;
+
+&lt;p&gt;Formulas:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;V(speed)(m/s)&lt;/strong&gt; = r(radius) x rpm(revolutions per minute) x 0.10472(2pi/60)(constant)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Angular velocity(rad/s)&lt;/strong&gt; = rpm x 0.10472(constant to convert rpm to rad/s)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acceleration(aMax)&lt;/strong&gt; = Vmax / s&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rolling Resistance(N)&lt;/strong&gt; = Gross Weight of Vehicle(N) x Surface Friction Coeff&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Grade Resistance(N)&lt;/strong&gt; = Gross Weight of Vehicle(N) x incline angle(BCA)(degrees)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acceleration Force(N)&lt;/strong&gt; = Gross Weight of Vehicle(N) x Vmax(m/s) x time required to Vmax(s)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Total Tractive Effort(N)&lt;/strong&gt; = Rolling Resistance(N) + Grade Resistance(N) + Acceleration Force(N)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Wheel Torque(Tw)(N)&lt;/strong&gt; = Total Tractive Effort(N) x Radius of Wheel(0.025m) x Resistance Factor(1.1 to 1.15)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Maximum Tractive Torque(N)&lt;/strong&gt; = Weight on drive wheel(N) x static friction coeff between wheel and ground x radius of wheel(N)&lt;/p&gt;
+
+&lt;p&gt;Constants:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Radius of track vehicle wheel&lt;/strong&gt; = 0.025m&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constant to convert rpm to m/s&lt;/strong&gt; = 0.10472&lt;/p&gt;
+
+&lt;p&gt;After familiarizing with the formulas, here are the steps to take to calculate all the mechanical aspects, all the way to Wheel Torque. I will use my own calculations to show you&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;**STEP 1: CALCULATING VMAX(MAXIMUM SPEED)**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;Vmax = radius x revolutions per minute x 0.10472&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 0.025 x 753 x 0.10472
+= 1.971354m/s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;u&gt;**STEP 2: CALCULATING ACCELERATION TIME USING VMAX AND TIME**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;Acceleration(aMax) = Vmax / s&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 1.971354 / 2
+= 0.985677 m/s^2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;u&gt;**STEP 3: CALCULATING WEIGHT OF GROCERIES AND TOTAL WEIGHT**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;There are two steps, one to calculate with just the &lt;strong&gt;total weight of groceries&lt;/strong&gt; and &lt;strong&gt;total weight of the vehicle with the load&lt;/strong&gt;(total weight of groceries)&lt;/p&gt;
+
+&lt;p&gt;Weight of Groceries =&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(3*200)g (Darlie Double Action Toothpaste)
++ (50*2)g (OSK Japanese Green Tea Bags)
++ (1000)g (Milo Powder Bag)
++ (360)g (Julie's Sandwich Biscuits)
++ (1500)g (Pasar Fresh Eggs)
+= 3560g 
+= 3.56kg  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Total Weight =&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(1000)g + (3560)g 
+= 4560g 
+= 4.56kg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;u&gt;**STEP 4: CALCULATING WHEEL TORQUE(TW) VALUE**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;There will be many steps involved in this, which is the calculation of Rolling Resistance, Grade Resistance, Acceleration Force, Total Tractive Effort and finally, Wheel Torque.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rolling Resistance(Rr) [N]&lt;/strong&gt; = Gross Weight of Vehicle(Gw)[N] x Surface Friction Coeff(SFc)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 4.56kg * 9.81(convert to Force(N)) (44.7336N) * 0.01 (Good Concrete Contact Surface)
+= 0.447336N
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using a BCA website found by Hans, I used the following to determine the θ for my calculation of grade resistance(Note that the θ is in degrees!)&lt;/p&gt;
+
+&lt;p&gt;tan(θ) = 1/2&lt;/p&gt;
+
+&lt;p&gt;θ = tan^-1(1/2)&lt;/p&gt;
+
+&lt;p&gt;θ = &lt;strong&gt;26.565°&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Grade Resistance(GR) [N]&lt;/strong&gt; = Gross Weight of Vehicle(WGV) [N] x sin(θ)(degrees)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 44.7336N * sin(26.565°)
+= 20.005 N 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Acceleration Force [N]&lt;/strong&gt; = Gross Weight of Vehicle(WGV) [N] x Vmax [m/s] / (32.2 [m/s^2 ] x Time [s])&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= (44.7336N * 1.971354m/s) / (9.81m/s^2 * 2s)
+= 4.49468712N
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Total Tractive Effort [N]&lt;/strong&gt; = Rolling Resistance [N] + Grade Resistance [N] + Acceleration Force [N]&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 0.447336N + 20.005 N + 4.49468712N
+= 24.49968712N 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lastly, &lt;strong&gt;Wheel Torque[Nm]&lt;/strong&gt; = Total Tractive Effort [N] x Radius of Wheel[m] x Resistance Factor [-]&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 28.97304712N * 0.025m * 1.1
+= 0.7967587958Nm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;DISCLAIMER:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Important! Please ensure your motor gcm/mNm which is your &lt;strong&gt;maximum output torque&lt;/strong&gt; is more than the &lt;strong&gt;wheel torque&lt;/strong&gt;! This is to ensure that the output torque of your motor is sufficient to ensure that it can move with the gross weight applied.&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;**STEP 5: CALCULATING GRAPH OF TW VS ACCELERATION TIMES(1-5 SECONDS)**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;Note, you will have to use excel, so you have sub in the values for the acceleration times and wheel torque.&lt;/p&gt;
+
+&lt;p&gt;As you can see below, I had to sub in my values so I could get the graph.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/excelmechanicalgraph.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should only highlight the Tw values and go to the &lt;strong&gt;Insert Tab&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/excel1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and find the &lt;strong&gt;Line or Area Chart Option&lt;/strong&gt;. (Make sure only your Wheel Torque values are highlighted!)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/excel2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, to set up the best-fit line, select the + symbol when you click on your graph, go to Trendline and select &lt;strong&gt;Linear&lt;/strong&gt;, as shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/excel3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Congratulations! You managed to complete the required steps for the assignment. The bonus question is still a work in progress.&lt;/p&gt;
+
+&lt;p&gt;Extra Notes: You can try to increase the amount of points, acceleration time, to better describe your graph. I personally just went until 5 points, which is 5 seconds, to show this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/mechanicalgraph.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the Bonus Step, to calculate the maximum possible incline, you will have to find the maximum tractive torque, which is the vehicle’s maximum load it can take when in motion.&lt;/p&gt;
+
+&lt;p&gt;From there, treat the maximum tractive torque value as your torque wheel value and work backwards to get the maximum possible angle your vehicle can go.&lt;/p&gt;
+
+&lt;p&gt;Credits to Wen Da for recommending this method to me.&lt;/p&gt;
+
+&lt;p&gt;MTT = Ww [N] x μ [-] x Rw [m]&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= 44.7336N/ 1(powered wheel) * 0.85 * 0.025
+= 0.950589Nm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Treat Tw as value of MTT,&lt;/p&gt;
+
+&lt;p&gt;Tw = TTE * Rw * RF&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.950589 = TTE * 0.025 * 1.1
+   
+TTE =  34.5668727N
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;TTE [N] = RR [N] + GR [N] + FA [N] (All values are fixed from above, be sure to inverse sin!)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;34.5668727N = 0.447336N + 44.7336N * sin(θ) + 4.49468712N
+
+Maximum Possible Incline, θ = 41.5 °
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And hence, the bonus step is complete! Hope you all had a great time going through this :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DISCLAIMER:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;My calculations are based on the formulas given in the sheet by Mr Tune on Blackboard including some basic physics formulas with a mix of mechanics.&lt;/p&gt;
+
+&lt;p&gt;Also, these calculation are mean for show, this is my first draft of calculation for the vehicle so the numbers do not accurately represent my final product.&lt;/p&gt;
+
+&lt;p&gt;Do note that some of your calculation may differ here and there, my recommended benchmark is to not exceed 45 degrees for maximum possible incline, as I personally feel it is not very logical from a physics point of view in terms of centre of gravity and traction required.&lt;/p&gt;
+
+&lt;p&gt;Finally, do not be stressed if your calculations are different, factors such as Gross Weight of Vehicle, Grade Resistance, etc, may differ as we have different values for them.&lt;/p&gt;</content><author><name></name></author><summary type="html">“God once said ‘Let there be physics’, hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs”</summary></entry><entry><title type="html">About Us</title><link href="http://localhost:4000/TrackerBoi/About-Us/" rel="alternate" type="text/html" title="About Us" /><published>2019-11-12T00:00:00+08:00</published><updated>2019-11-12T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/About-Us</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/About-Us/">&lt;p&gt;“Hello and welcome to our blog! Here are some basic information about us, the people behind this tracked vehicle project”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/rifaaie.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ahmad Rifaaie Bin Mohamed Ali&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Rifaaie, or in short, Rif, is our mechanical guy of the group who handles anything related to the mechanics of our tracked vehicle. Has good mechanical and some electrical knowledge.&lt;/p&gt;
+
+&lt;p&gt;Link to Rifaaie’s Github:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ahmadrifaaie&quot;&gt;https://github.com/ahmadrifaaie&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/hans.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hans Delano&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hans, he is our coding guy, who has skills in electrical and computer programming. He helps out in programming the tracked vehicle to carry out its purpose.&lt;/p&gt;
+
+&lt;p&gt;Link to Hans’ Github:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hanscau&quot;&gt;https://github.com/hanscau&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/jabez.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jabez Tho Ngee Qi&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Jabez, our coding guy again, who forms a good duo with Hans to code our track vehicle up to date, has good electrical and coding knowledge.&lt;/p&gt;
+
+&lt;p&gt;Link to Jabez’s Github:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Jasperabez&quot;&gt;https://github.com/Jasperabez&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/weijuin.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lee Wei Juin&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And finally, Wei Juin, he has good electrical and coding knowledge. He helps to ensure the electrical requirements needed for the track vehicle are met.&lt;/p&gt;
+
+&lt;p&gt;Link to Wei Juin’s Github:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/weijuinlee&quot;&gt;https://github.com/weijuinlee&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">“Hello and welcome to our blog! Here are some basic information about us, the people behind this tracked vehicle project”</summary></entry><entry><title type="html">Esp32 Micropython With DHT11 Temperature Sensor</title><link href="http://localhost:4000/TrackerBoi/ESP32-Micropython-with-DHT11-Temperature-Sensor/" rel="alternate" type="text/html" title="Esp32 Micropython With DHT11 Temperature Sensor" /><published>2019-11-09T00:00:00+08:00</published><updated>2019-11-09T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/ESP32-Micropython-with-DHT11-Temperature-Sensor</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/ESP32-Micropython-with-DHT11-Temperature-Sensor/">&lt;p&gt;GO TO &lt;a href=&quot;https://github.com/weijuinlee/esp32micropythondht11&quot;&gt;https://github.com/weijuinlee/esp32micropythondht11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s a list of parts you need to build the circuit:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;DHT11 or DHT22 temperature and humidity sensor&lt;/li&gt;
+  &lt;li&gt;10k Ohm resistor&lt;/li&gt;
+  &lt;li&gt;Breadboard&lt;/li&gt;
+  &lt;li&gt;Jumper wires&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;dht&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;sensor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dht&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DHT22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#sensor = dht.DHT11(Pin(14))
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;measure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;590&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;hum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;humidity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1600&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Temperature: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;f C'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Humidity: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%3.1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;f &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;OSError&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Failed to read sensor.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">GO TO https://github.com/weijuinlee/esp32micropythondht11</summary></entry><entry><title type="html">References</title><link href="http://localhost:4000/TrackerBoi/references/" rel="alternate" type="text/html" title="References" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/references</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/references/">&lt;p&gt;“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
 &lt;h2 id=&quot;for-electrical-related&quot;&gt;For Electrical Related&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;http://esp32.net/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://en.wikipedia.org/wiki/ESP32&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://docs.micropython.org/en/latest/esp32/tutorial/intro.html&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/overview&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://github.com/espressif/esptool&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;http://micropython.org/download#esp32&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://dronebotworkshop.com/dc-motors-l298n-h-bridge/&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;http://esp32.net/&lt;/li&gt;
+  &lt;li&gt;https://en.wikipedia.org/wiki/ESP32&lt;/li&gt;
+  &lt;li&gt;https://docs.micropython.org/en/latest/esp32/tutorial/intro.html&lt;/li&gt;
+  &lt;li&gt;https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/overview&lt;/li&gt;
+  &lt;li&gt;https://github.com/espressif/esptool&lt;/li&gt;
+  &lt;li&gt;http://micropython.org/download#esp32&lt;/li&gt;
+  &lt;li&gt;https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/&lt;/li&gt;
+  &lt;li&gt;https://dronebotworkshop.com/dc-motors-l298n-h-bridge/&lt;/li&gt;
+  &lt;li&gt;https://components101.com/microcontrollers/esp32-devkitc&lt;/li&gt;
+  &lt;li&gt;https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators&lt;/li&gt;
+  &lt;li&gt;https://www.youtube.com/user/rdagger68  (Circuit and Coding guides)&lt;/li&gt;
+  &lt;li&gt;https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ  (ESP32 Guide Channel, Andreas Spiess)&lt;/li&gt;
+  &lt;li&gt;https://www.youtube.com/watch?v=hi8iDy7jsOg (Lithium Ion Battery Charger)&lt;/li&gt;
+  &lt;li&gt;https://www.youtube.com/watch?v=43-N4RQhtp0&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;for-mechanical-related&quot;&gt;For Mechanical Related&lt;/h2&gt;
@@ -53,6 +736,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;https://github.com/barryclark/jekyll-now (Jekyll Pages Guide)&lt;/li&gt;
+  &lt;li&gt;https://www.kickstarter.com/projects/rorymackean/tertill-the-solar-powered-weeding-robot-for-home-g  (Tertill Project)&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">“The following is a list of websites that are provided by the lecturers for references during our tracked vehicle project”</summary></entry><entry><title type="html">Esp32 and MicroPython</title><link href="http://localhost:4000/TrackerBoi/Esp32-MicroPython/" rel="alternate" type="text/html" title="Esp32 and MicroPython" /><published>2019-11-06T00:00:00+08:00</published><updated>2019-11-06T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Esp32-MicroPython</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Esp32-MicroPython/">&lt;p&gt;“Flashing MicroPython to the Esp32 for Windows”&lt;/p&gt;
 
 &lt;h3 id=&quot;flashing-micropython-to-esp32&quot;&gt;Flashing MicroPython to Esp32&lt;/h3&gt;
@@ -155,162 +839,143 @@ Port number on windows will be “COMX” and on Linux “dev/ttyUSBX” X is an
 &lt;h2 id=&quot;6-run-script&quot;&gt;6. Run Script&lt;/h2&gt;
 &lt;p&gt;Select “Micropython: Run..” from the command palette and run it. &lt;b&gt;Press the reset button on the board&lt;/b&gt; after a successful build to ensure the program is loaded.&lt;/p&gt;
 
-&lt;p&gt;That’s all and enjoy using VSCode!!&lt;/p&gt;</content><author><name></name></author><summary type="html">VSCode is a powerful text editor which capabilities can be enhance through various extensions. With the Micropython IDE extension installed it is a viable alternative to Thonny and MuEditor. In this guide I am using the Esp32 and running Linux (Manjaro) as my OS, differences in steps might be expected if your configuration is different.</summary></entry><entry><title type="html">MicroPython, MicroBit and VSCode</title><link href="http://localhost:4000/TrackerBoi/MicroBit/" rel="alternate" type="text/html" title="MicroPython, MicroBit and VSCode" /><published>2019-10-23T00:00:00+08:00</published><updated>2019-10-23T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit/">&lt;p&gt;“Installing MicroPython with MicroBit support for VSCode”&lt;/p&gt;
+&lt;p&gt;That’s all and enjoy using VSCode!!&lt;/p&gt;</content><author><name></name></author><summary type="html">VSCode is a powerful text editor which capabilities can be enhance through various extensions. With the Micropython IDE extension installed it is a viable alternative to Thonny and MuEditor. In this guide I am using the Esp32 and running Linux (Manjaro) as my OS, differences in steps might be expected if your configuration is different.</summary></entry><entry><title type="html">MicroBit SpaceInvaders</title><link href="http://localhost:4000/TrackerBoi/MicroBit-SpaceInvaders/" rel="alternate" type="text/html" title="MicroBit SpaceInvaders" /><published>2019-10-27T00:00:00+08:00</published><updated>2019-10-27T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/MicroBit-SpaceInvaders</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/MicroBit-SpaceInvaders/">&lt;p&gt;GO TO &lt;a href=&quot;https://github.com/weijuinlee/EA_Projects&quot;&gt;hhttps://github.com/weijuinlee/EA_Projects&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;New to python?&lt;/p&gt;
+
+&lt;p&gt;Useful links for Thonny IDE:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=lWaCl0WjNZI&quot; title=&quot;thonnyintrovideo&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/lWaCl0WjNZI/0.jpg&quot; alt=&quot;alt text&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Complete guide to downloading and setting up Thonny IDE&lt;/li&gt;
+  &lt;li&gt;Basic walk-through into simple arithmetic and functions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=dGvQPp0zEM4&quot; title=&quot;thonnythemevideo&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg&quot; alt=&quot;alt text&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Knowing that themes are so &lt;strong&gt;critical&lt;/strong&gt; to programmers, this video guides you to select your preferred look in Thonny IDE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Useful links to learn Python:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=yE9v9rt6ziw&quot; title=&quot;pythonintrovideo&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg&quot; alt=&quot;alt text&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Illustrative programming educational material - Clear and Concise&lt;/li&gt;
+  &lt;li&gt;Includes programming exercises, questions and cheat sheet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;space-impact-game&quot;&gt;Space Impact Game&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Demo Video:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=H4Yo7XGbGSM&quot; title=&quot;spaceimagedemo&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/H4Yo7XGbGSM/0.jpg&quot; alt=&quot;alt text&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;microbit&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button_a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;was_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button_b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;was_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;   
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;shooting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;printBoard&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;previousPost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;move&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;move&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;previousPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;previousPost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;killFactor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shooting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;killFactor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_pixel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_pixel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;            
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Current Post: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;currentPost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        
+&lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Start!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;boardStatus6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;initCompleted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initCompleted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;prevPosition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;postNow&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;postNow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printBoard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prevPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initCompleted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;prevPosition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;postNow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printBoard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prevPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;initCompleted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Won!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Won!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Won!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Won!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boardStatus6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Won!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;What were your problems and how did i fix the bugs:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Search for “Micro-bit” in the Marketplace and get the english looking one&lt;/li&gt;
-  &lt;li&gt;Install Python 3&lt;/li&gt;
-  &lt;li&gt;run&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;As there are 5 scenarios for the player to win,I had to think about how to determining if the player has won. For now, I have simply checked the status of the board for all 5 scenarios.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To prevent the pointer from going out of list, I simply checked and set a minimum and maximum to the pointer range.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install uflash
-``
-4. get microbit library using &quot;fetch&quot;
-5. then flash!
-&amp;gt;If it doesn't work, specify the path of the microbit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;uflash yourCode.py F:/(directory of MicroBit)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Yeet real hard
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">“Installing MicroPython with MicroBit support for VSCode”</summary></entry><entry><title type="html">How to MarkDown and Git</title><link href="http://localhost:4000/TrackerBoi/Hans/" rel="alternate" type="text/html" title="How to MarkDown and Git" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Hans</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Hans/">&lt;p&gt;“Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it.”&lt;/p&gt;
-
-&lt;p&gt;For example&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; # Example 1
- ## Example 2
- ### Example 3
- #### Example 4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;will give you&lt;/p&gt;
-
-&lt;h1 id=&quot;example-1&quot;&gt;Example 1&lt;/h1&gt;
-
-&lt;h2 id=&quot;example-2&quot;&gt;Example 2&lt;/h2&gt;
-
-&lt;h3 id=&quot;example-3&quot;&gt;Example 3&lt;/h3&gt;
-
-&lt;h4 id=&quot;example-4&quot;&gt;Example 4&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Spacing &lt;strong&gt;AFTER&lt;/strong&gt; the hashgstags are &lt;strong&gt;very very&lt;/strong&gt; important&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Some more things you can do&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*Test1*
-**Test2**
-~~Test3~~
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Test1&lt;/em&gt;
-&lt;strong&gt;Test2&lt;/strong&gt;
-&lt;del&gt;Test3&lt;/del&gt;&lt;/p&gt;
-
-&lt;p&gt;Even &lt;strong&gt;MORE&lt;/strong&gt; things you can do&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;Lorem Ipsum
-1. This
-2. Is
-3. A
-4. List
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem Ipsum&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;My obstacles:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;This&lt;/li&gt;
-  &lt;li&gt;Is&lt;/li&gt;
-  &lt;li&gt;A&lt;/li&gt;
-  &lt;li&gt;List&lt;/li&gt;
+  &lt;li&gt;Understanding the logic behind the game.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;And finally, I’m too lazy too add more of the things you can do, so this is the final one&lt;/p&gt;
+&lt;p&gt;Tips to the aspiring coders out there:&lt;/p&gt;
 
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;s&quot;&gt;&quot;```&quot;&lt;/span&gt;
-
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hyperlink&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theActualLinkItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;remove the bunny ears, its there just to make everything is rendered properly&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Code here&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;www.theActualLinkItself.com.sg&quot;&gt;hyperlink text&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;how to MD&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;learning-how-to-git-collab&quot;&gt;Learning how to git (collab)&lt;/h2&gt;
-
-&lt;p&gt;Go to the directory that you want to save the repo in &lt;strong&gt;locally&lt;/strong&gt;
-Key in the following to clone the whole repo&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git clone &amp;lt;insert_git_url&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That’s it!
-With that you will have the whole repo locally in your computer :D&lt;/p&gt;
-
-&lt;h4 id=&quot;making-changes&quot;&gt;Making changes&lt;/h4&gt;
-
-&lt;p&gt;When you make changes in the repo, follow the following flow.
-&lt;strong&gt;Always&lt;/strong&gt; fetch before making changes, fetching will get all the other changes that others (might) have done.&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pull&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After fetching, you can now do your work!
-When you have done doing your work always remember to &lt;em&gt;Ctrl + S&lt;/em&gt; !
-BUT, this will only make changes locally, to save it to your repo, do&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;Description here&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will save your changes into your repo, much like saving your files locally.
-However, try to commit in logical chucks of changes as this will help in your version controlling in the future&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Basically, just do it. You’ll thank yourself in the future&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Then finally, share your changes to the world!
-One commit at a time&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Learn more by clicking here: &lt;a href=&quot;https://gist.github.com/adamloving/5690951&quot;&gt;how to git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">“Markdown is a markup language without tags. So basically, you use special symbols before the sentence or words you want to type to style it.”</summary></entry><entry><title type="html">Using Jekyll pages</title><link href="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/" rel="alternate" type="text/html" title="Using Jekyll pages" /><published>2019-10-16T00:00:00+08:00</published><updated>2019-10-16T00:00:00+08:00</updated><id>http://localhost:4000/TrackerBoi/Using-Jekyll-Pages</id><content type="html" xml:base="http://localhost:4000/TrackerBoi/Using-Jekyll-Pages/">&lt;p&gt;“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.&lt;/p&gt;
-
-&lt;p&gt;I used &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll-now&lt;/a&gt; for this specific site. Follow the detail steps as according to the link, and remember to tick the github pages option for your fork. After editing the config and set up everything you can add new post by putting the markdown files in the “_posts” folder.&lt;/p&gt;
-
-&lt;h2 id=&quot;sample-post-template&quot;&gt;Sample post template&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
-layout: post
-title: Using Jekyll pages
----
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;the text above is the heading for all post you make, so put it at the top.&lt;/p&gt;
-
-&lt;p&gt;To be able to get the written date be sure to format the name of the file as “YYYY-MM-DD-POSTNAME.md” for example like this “2019-10-16-Using-Jekyll-pages”&lt;/p&gt;
-
-&lt;h2 id=&quot;some-useful-info&quot;&gt;Some useful info&lt;/h2&gt;
-
-&lt;p&gt;To refer to content in the site use this (remove the quotes):&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;{site.baseurl}&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;which points to the root directory of the site&lt;/p&gt;
-
-&lt;h2 id=&quot;final-words&quot;&gt;Final words&lt;/h2&gt;
-&lt;p&gt;You are all set to whip up new posts using markdown, and &lt;a href=&quot;/TrackerBoi\Hans&quot;&gt;here’s&lt;/a&gt; a quick markdown cheatsheet that my friend Hans wrote to refer to :)&lt;/p&gt;</content><author><name></name></author><summary type="html">“Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder” But what you need to know that is just that it can help you set up a bloglike site really really fast.</summary></entry></feed>
+&lt;ul&gt;
+  &lt;li&gt;Write the program structure out before you start&lt;/li&gt;
+  &lt;li&gt;Use print statements to check your program and fix bugs&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">GO TO hhttps://github.com/weijuinlee/EA_Projects</summary></entry></feed>

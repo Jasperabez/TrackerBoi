@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mechanical Bible – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="“God once said ‘Let there be physics’, hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs”
+
+" />
+    <meta property="og:description" content="“God once said ‘Let there be physics’, hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs”
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="Mechanical Bible" />
+    <meta property="twitter:title" content="Mechanical Bible" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Mechanical Bible</h1>
+
+  <div class="entry">
+    <p>“God once said ‘Let there be physics’, hence we humans came up with all sorts of calculations there is known, and here, be the great formulas and walkthroughs”</p>
+
+<p>Formulas:</p>
+
+<p><strong>V(speed)(m/s)</strong> = r(radius) x rpm(revolutions per minute) x 0.10472(2pi/60)(constant)</p>
+
+<p><strong>Angular velocity(rad/s)</strong> = rpm x 0.10472(constant to convert rpm to rad/s)</p>
+
+<p><strong>Acceleration(aMax)</strong> = Vmax / s</p>
+
+<p><strong>Rolling Resistance(N)</strong> = Gross Weight of Vehicle(N) x Surface Friction Coeff</p>
+
+<p><strong>Grade Resistance(N)</strong> = Gross Weight of Vehicle(N) x incline angle(BCA)(degrees)</p>
+
+<p><strong>Acceleration Force(N)</strong> = Gross Weight of Vehicle(N) x Vmax(m/s) x time required to Vmax(s)</p>
+
+<p><strong>Total Tractive Effort(N)</strong> = Rolling Resistance(N) + Grade Resistance(N) + Acceleration Force(N)</p>
+
+<p><strong>Wheel Torque(Tw)(N)</strong> = Total Tractive Effort(N) x Radius of Wheel(0.025m) x Resistance Factor(1.1 to 1.15)</p>
+
+<p><strong>Maximum Tractive Torque(N)</strong> = Weight on drive wheel(N) x static friction coeff between wheel and ground x radius of wheel(N)</p>
+
+<p>Constants:</p>
+
+<p><strong>Radius of track vehicle wheel</strong> = 0.025m</p>
+
+<p><strong>Constant to convert rpm to m/s</strong> = 0.10472</p>
+
+<p>After familiarizing with the formulas, here are the steps to take to calculate all the mechanical aspects, all the way to Wheel Torque. I will use my own calculations to show you</p>
+
+<p><u>**STEP 1: CALCULATING VMAX(MAXIMUM SPEED)**</u></p>
+
+<p>Vmax = radius x revolutions per minute x 0.10472</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 0.025 x 753 x 0.10472
+= 1.971354m/s
+</code></pre></div></div>
+
+<p><u>**STEP 2: CALCULATING ACCELERATION TIME USING VMAX AND TIME**</u></p>
+
+<p>Acceleration(aMax) = Vmax / s</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 1.971354 / 2
+= 0.985677 m/s^2
+</code></pre></div></div>
+
+<p><u>**STEP 3: CALCULATING WEIGHT OF GROCERIES AND TOTAL WEIGHT**</u></p>
+
+<p>There are two steps, one to calculate with just the <strong>total weight of groceries</strong> and <strong>total weight of the vehicle with the load</strong>(total weight of groceries)</p>
+
+<p>Weight of Groceries =</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(3*200)g (Darlie Double Action Toothpaste)
++ (50*2)g (OSK Japanese Green Tea Bags)
++ (1000)g (Milo Powder Bag)
++ (360)g (Julie's Sandwich Biscuits)
++ (1500)g (Pasar Fresh Eggs)
+= 3560g 
+= 3.56kg  
+</code></pre></div></div>
+
+<p>Total Weight =</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1000)g + (3560)g 
+= 4560g 
+= 4.56kg
+</code></pre></div></div>
+
+<p><u>**STEP 4: CALCULATING WHEEL TORQUE(TW) VALUE**</u></p>
+
+<p>There will be many steps involved in this, which is the calculation of Rolling Resistance, Grade Resistance, Acceleration Force, Total Tractive Effort and finally, Wheel Torque.</p>
+
+<p><strong>Rolling Resistance(Rr) [N]</strong> = Gross Weight of Vehicle(Gw)[N] x Surface Friction Coeff(SFc)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 4.56kg * 9.81(convert to Force(N)) (44.7336N) * 0.01 (Good Concrete Contact Surface)
+= 0.447336N
+</code></pre></div></div>
+
+<p>Using a BCA website found by Hans, I used the following to determine the θ for my calculation of grade resistance(Note that the θ is in degrees!)</p>
+
+<p>tan(θ) = 1/2</p>
+
+<p>θ = tan^-1(1/2)</p>
+
+<p>θ = <strong>26.565°</strong></p>
+
+<p><strong>Grade Resistance(GR) [N]</strong> = Gross Weight of Vehicle(WGV) [N] x sin(θ)(degrees)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 44.7336N * sin(26.565°)
+= 20.005 N 
+</code></pre></div></div>
+
+<p><strong>Acceleration Force [N]</strong> = Gross Weight of Vehicle(WGV) [N] x Vmax [m/s] / (32.2 [m/s^2 ] x Time [s])</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= (44.7336N * 1.971354m/s) / (9.81m/s^2 * 2s)
+= 4.49468712N
+</code></pre></div></div>
+
+<p><strong>Total Tractive Effort [N]</strong> = Rolling Resistance [N] + Grade Resistance [N] + Acceleration Force [N]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 0.447336N + 20.005 N + 4.49468712N
+= 24.49968712N 
+</code></pre></div></div>
+
+<p>Lastly, <strong>Wheel Torque[Nm]</strong> = Total Tractive Effort [N] x Radius of Wheel[m] x Resistance Factor [-]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 28.97304712N * 0.025m * 1.1
+= 0.7967587958Nm
+</code></pre></div></div>
+
+<p><strong>DISCLAIMER:</strong></p>
+
+<p>Important! Please ensure your motor gcm/mNm which is your <strong>maximum output torque</strong> is more than the <strong>wheel torque</strong>! This is to ensure that the output torque of your motor is sufficient to ensure that it can move with the gross weight applied.</p>
+
+<p><u>**STEP 5: CALCULATING GRAPH OF TW VS ACCELERATION TIMES(1-5 SECONDS)**</u></p>
+
+<p>Note, you will have to use excel, so you have sub in the values for the acceleration times and wheel torque.</p>
+
+<p>As you can see below, I had to sub in my values so I could get the graph.</p>
+
+<p><img src="../images/excelmechanicalgraph.png" alt="" /></p>
+
+<p>You should only highlight the Tw values and go to the <strong>Insert Tab</strong></p>
+
+<p><img src="../images/excel1.png" alt="" /></p>
+
+<p>and find the <strong>Line or Area Chart Option</strong>. (Make sure only your Wheel Torque values are highlighted!)</p>
+
+<p><img src="../images/excel2.png" alt="" /></p>
+
+<p>Finally, to set up the best-fit line, select the + symbol when you click on your graph, go to Trendline and select <strong>Linear</strong>, as shown below.</p>
+
+<p><img src="../images/excel3.png" alt="" /></p>
+
+<p>Congratulations! You managed to complete the required steps for the assignment. The bonus question is still a work in progress.</p>
+
+<p>Extra Notes: You can try to increase the amount of points, acceleration time, to better describe your graph. I personally just went until 5 points, which is 5 seconds, to show this.</p>
+
+<p><img src="../images/mechanicalgraph.png" alt="" /></p>
+
+<p>For the Bonus Step, to calculate the maximum possible incline, you will have to find the maximum tractive torque, which is the vehicle’s maximum load it can take when in motion.</p>
+
+<p>From there, treat the maximum tractive torque value as your torque wheel value and work backwards to get the maximum possible angle your vehicle can go.</p>
+
+<p>Credits to Wen Da for recommending this method to me.</p>
+
+<p>MTT = Ww [N] x μ [-] x Rw [m]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= 44.7336N/ 1(powered wheel) * 0.85 * 0.025
+= 0.950589Nm
+</code></pre></div></div>
+
+<p>Treat Tw as value of MTT,</p>
+
+<p>Tw = TTE * Rw * RF</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.950589 = TTE * 0.025 * 1.1
+   
+TTE =  34.5668727N
+</code></pre></div></div>
+
+<p>TTE [N] = RR [N] + GR [N] + FA [N] (All values are fixed from above, be sure to inverse sin!)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>34.5668727N = 0.447336N + 44.7336N * sin(θ) + 4.49468712N
+
+Maximum Possible Incline, θ = 41.5 °
+</code></pre></div></div>
+
+<p>And hence, the bonus step is complete! Hope you all had a great time going through this :)</p>
+
+<p><strong>DISCLAIMER:</strong></p>
+
+<p>My calculations are based on the formulas given in the sheet by Mr Tune on Blackboard including some basic physics formulas with a mix of mechanics.</p>
+
+<p>Also, these calculation are mean for show, this is my first draft of calculation for the vehicle so the numbers do not accurately represent my final product.</p>
+
+<p>Do note that some of your calculation may differ here and there, my recommended benchmark is to not exceed 45 degrees for maximum possible incline, as I personally feel it is not very logical from a physics point of view in terms of centre of gravity and traction required.</p>
+
+<p>Finally, do not be stressed if your calculations are different, factors such as Gross Weight of Vehicle, Grade Resistance, etc, may differ as we have different values for them.</p>
+
+
+  </div>
+
+  <div class="date">
+    Written on November 16, 2019
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

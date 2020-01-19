@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MicroBit SpaceInvaders – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="GO TO hhttps://github.com/weijuinlee/EA_Projects
+
+" />
+    <meta property="og:description" content="GO TO hhttps://github.com/weijuinlee/EA_Projects
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="MicroBit SpaceInvaders" />
+    <meta property="twitter:title" content="MicroBit SpaceInvaders" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>MicroBit SpaceInvaders</h1>
+
+  <div class="entry">
+    <p>GO TO <a href="https://github.com/weijuinlee/EA_Projects">hhttps://github.com/weijuinlee/EA_Projects</a></p>
+
+<p>New to python?</p>
+
+<p>Useful links for Thonny IDE:</p>
+
+<p><a href="http://www.youtube.com/watch?v=lWaCl0WjNZI" title="thonnyintrovideo"><img src="http://img.youtube.com/vi/lWaCl0WjNZI/0.jpg" alt="alt text" /></a></p>
+
+<ul>
+  <li>Complete guide to downloading and setting up Thonny IDE</li>
+  <li>Basic walk-through into simple arithmetic and functions</li>
+</ul>
+
+<p><a href="http://www.youtube.com/watch?v=dGvQPp0zEM4" title="thonnythemevideo"><img src="http://img.youtube.com/vi/dGvQPp0zEM4/0.jpg" alt="alt text" /></a></p>
+
+<ul>
+  <li>Knowing that themes are so <strong>critical</strong> to programmers, this video guides you to select your preferred look in Thonny IDE</li>
+</ul>
+
+<p>Useful links to learn Python:</p>
+
+<p><a href="http://www.youtube.com/watch?v=yE9v9rt6ziw" title="pythonintrovideo"><img src="http://img.youtube.com/vi/yE9v9rt6ziw/0.jpg" alt="alt text" /></a></p>
+
+<ul>
+  <li>Illustrative programming educational material - Clear and Concise</li>
+  <li>Includes programming exercises, questions and cheat sheet</li>
+</ul>
+
+<h2 id="space-impact-game">Space Impact Game</h2>
+
+<p><strong>Demo Video:</strong></p>
+
+<p><a href="https://www.youtube.com/watch?v=H4Yo7XGbGSM" title="spaceimagedemo"><img src="http://img.youtube.com/vi/H4Yo7XGbGSM/0.jpg" alt="alt text" /></a></p>
+
+<p><strong>Code:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">controls</span><span class="p">():</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">button_a</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">(),</span><span class="n">button_b</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">())</span>   
+    <span class="k">if</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">10</span>
+    <span class="k">elif</span> <span class="n">a</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+<span class="k">def</span> <span class="nf">shooting</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">controls</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">printBoard</span> <span class="p">(</span><span class="n">move</span><span class="p">,</span><span class="n">previousPost</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">if</span> <span class="n">move</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">move</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">currentPost</span> <span class="o">=</span> <span class="n">previousPost</span> <span class="o">+</span> <span class="n">move</span>
+    <span class="k">if</span> <span class="n">currentPost</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">currentPost</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="k">if</span> <span class="n">currentPost</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">currentPost</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">boardStatus1</span><span class="p">[</span><span class="n">previousPost</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">boardStatus1</span><span class="p">[</span><span class="n">currentPost</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">killFactor</span> <span class="o">=</span> <span class="n">shooting</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">killFactor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">boardStatus1</span><span class="p">[</span><span class="n">currentPost</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">boardStatus1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">boardStatus1</span><span class="p">[</span><span class="n">x</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">display</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">display</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>            
+            <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">return</span> <span class="n">currentPost</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Current Post: "</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">currentPost</span><span class="p">))</span>
+    
+<span class="k">def</span> <span class="nf">initFunction</span><span class="p">(</span><span class="n">startPoint</span><span class="p">):</span>
+    <span class="n">boardStatus1</span><span class="p">[</span><span class="n">startPoint</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Start!!!"</span><span class="p">)</span>
+<span class="n">boardStatus1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">boardStatus2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">boardStatus3</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">boardStatus4</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">boardStatus5</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">boardStatus6</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">initCompleted</span><span class="o">=</span><span class="mi">0</span>
+ 
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">initCompleted</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">prevPosition</span><span class="o">=</span><span class="n">postNow</span>
+        <span class="n">postNow</span><span class="o">=</span><span class="n">printBoard</span><span class="p">(</span><span class="n">controls</span><span class="p">(),</span><span class="n">prevPosition</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">initCompleted</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prevPosition</span><span class="o">=</span><span class="mi">2</span>
+        <span class="n">postNow</span><span class="o">=</span><span class="n">printBoard</span><span class="p">(</span><span class="n">controls</span><span class="p">(),</span><span class="n">prevPosition</span><span class="p">)</span>
+        <span class="n">initCompleted</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">boardStatus1</span> <span class="o">==</span> <span class="n">boardStatus2</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Won!!!"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">boardStatus1</span> <span class="o">==</span> <span class="n">boardStatus3</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Won!!!"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">boardStatus1</span> <span class="o">==</span> <span class="n">boardStatus4</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Won!!!"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">boardStatus1</span> <span class="o">==</span> <span class="n">boardStatus5</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Won!!!"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">boardStatus1</span> <span class="o">==</span> <span class="n">boardStatus6</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s">"Won!!!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>What were your problems and how did i fix the bugs:</p>
+
+<ol>
+  <li>
+    <p>As there are 5 scenarios for the player to win,I had to think about how to determining if the player has won. For now, I have simply checked the status of the board for all 5 scenarios.</p>
+  </li>
+  <li>
+    <p>To prevent the pointer from going out of list, I simply checked and set a minimum and maximum to the pointer range.</p>
+  </li>
+</ol>
+
+<p>My obstacles:</p>
+
+<ol>
+  <li>Understanding the logic behind the game.</li>
+</ol>
+
+<p>Tips to the aspiring coders out there:</p>
+
+<ul>
+  <li>Write the program structure out before you start</li>
+  <li>Use print statements to check your program and fix bugs</li>
+</ul>
+
+  </div>
+
+  <div class="date">
+    Written on October 27, 2019
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

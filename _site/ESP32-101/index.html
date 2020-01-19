@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ESP32 Documentation – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="” Hello! Here are some of the stuff we did using our ESP32 as documentation”
+
+" />
+    <meta property="og:description" content="” Hello! Here are some of the stuff we did using our ESP32 as documentation”
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="ESP32 Documentation" />
+    <meta property="twitter:title" content="ESP32 Documentation" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>ESP32 Documentation</h1>
+
+  <div class="entry">
+    <p>” Hello! Here are some of the stuff we did using our ESP32 as documentation”</p>
+
+<p><img src="../images/ESP32-DevKitC.jpg" width="600" height="300" /></p>
+
+<p>In order to better understand the ESP32, we looked through some websites to know the pin configurations and functions that the module can do. Personally, it works similarly as any micro-controllers like the Arduino Uno, Raspberry Pi and such.</p>
+
+<p>Below, I have given the pin configurations of the ESP32.</p>
+
+<p><img src="../images/ESP32-Pinout.png" width="600" height="300" /></p>
+
+<h3 id="pin-configuration"><strong>Pin Configuration</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Pin Category</strong></th>
+      <th><strong>Pin Name</strong></th>
+      <th><strong>Details</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Power</td>
+      <td><strong>Micro-USB, 3.3V, 5V,</strong> <strong>GND</strong></td>
+      <td><strong>Micro-USB:</strong> ESP32 can be powered through USB port<strong>5V:</strong> Regulated 5V can be supplied to this pin which is we be again regulated to 3.3V by on board regulator, to power the board.<strong>3.3V:</strong> Regulated 3.3V can be supplied to this pin to power the board.<strong>GND:</strong> Ground pins.</td>
+    </tr>
+    <tr>
+      <td>Enable</td>
+      <td><strong>En</strong></td>
+      <td>The pin and the button resets the microcontroller.</td>
+    </tr>
+    <tr>
+      <td>Analog Pins</td>
+      <td><strong>ADC1_0 to ADC1_5 and ADC2_0 to ADC2_9</strong></td>
+      <td>Used to measure analog voltage in the range of 0-3.3V.12-bit 18 Channel ADC</td>
+    </tr>
+    <tr>
+      <td>DAC pins</td>
+      <td><strong>DAC1 and DAC2</strong></td>
+      <td>Used for Digital to analog Conversion</td>
+    </tr>
+    <tr>
+      <td>Input/Output Pins</td>
+      <td><strong>GPIO0 to GPIO39</strong></td>
+      <td>Totally 39 GPIO pins, can be used as input or output pins. 0V (low) and 3.3V (high). But pins 34 to 39 can be used as input only</td>
+    </tr>
+    <tr>
+      <td>Capacitive Touch pins</td>
+      <td><strong>T0 to T9</strong></td>
+      <td>These 10 pins can be used a touch pins normally used for capacitive pads</td>
+    </tr>
+    <tr>
+      <td>RTC GPIO pins</td>
+      <td><strong>RTCIO0 to RTCIO17</strong></td>
+      <td>These 18 GPIO pins can be used to wake up the ESP32 from deep sleep mode.</td>
+    </tr>
+    <tr>
+      <td>Serial</td>
+      <td>Rx, <strong>Tx</strong></td>
+      <td>Used to receive and transmit TTL serial data.</td>
+    </tr>
+    <tr>
+      <td>External Interrupts</td>
+      <td>All GPIO</td>
+      <td>Any GPIO can be use to trigger an interrupt.</td>
+    </tr>
+    <tr>
+      <td>PWM</td>
+      <td>All GPIO</td>
+      <td>16 independent channel is available for PWM any GPIO can be made to work as PWM though software</td>
+    </tr>
+    <tr>
+      <td>VSPI</td>
+      <td>GPIO23 (MOSI), GPIO19(MISO), GPIO18(CLK) and GPIO5 (CS)</td>
+      <td>Used for SPI-1 communication.</td>
+    </tr>
+    <tr>
+      <td>HSPI</td>
+      <td>GPIO13 (MOSI), GPIO12(MISO), GPIO14(CLK) and GPIO15 (CS)</td>
+      <td>Used for SPI-2 communication.</td>
+    </tr>
+    <tr>
+      <td>IIC</td>
+      <td>GPIO21(SDA), GPIO22(SCL)</td>
+      <td>Used for I2C communication.</td>
+    </tr>
+    <tr>
+      <td>AREF</td>
+      <td><strong>AREF</strong></td>
+      <td>To provide reference voltage for input voltage.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="esp32-technical-specifications"><strong>ESP32 Technical Specifications</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Microprocessor</th>
+      <th>Tensilica Xtensa LX6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Maximum Operating Frequency</td>
+      <td>240MHz</td>
+    </tr>
+    <tr>
+      <td>Operating Voltage</td>
+      <td>3.3V</td>
+    </tr>
+    <tr>
+      <td>Analog Input Pins</td>
+      <td>12-bit, 18 Channel</td>
+    </tr>
+    <tr>
+      <td>DAC Pins</td>
+      <td>8-bit, 2 Channel</td>
+    </tr>
+    <tr>
+      <td>Digital I/O Pins</td>
+      <td>39 (of which 34 is normal GPIO pin)</td>
+    </tr>
+    <tr>
+      <td>DC Current on I/O Pins</td>
+      <td>40 mA</td>
+    </tr>
+    <tr>
+      <td>DC Current on 3.3V Pin</td>
+      <td>50 mA</td>
+    </tr>
+    <tr>
+      <td>SRAM</td>
+      <td>520 KB</td>
+    </tr>
+    <tr>
+      <td>Communication</td>
+      <td>SPI(4), I2C(2), I2S(2), CAN, UART(3)</td>
+    </tr>
+    <tr>
+      <td>Wi-Fi</td>
+      <td>802.11 b/g/n</td>
+    </tr>
+    <tr>
+      <td>Bluetooth</td>
+      <td>V4.2 – Supports BLE and Classic Bluetooth</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Credits to https://components101.com/microcontrollers/esp32-devkitc for providing this pin configuration layout and functions of the different pins and to  https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#onboard-switches-led-indicators  for giving the necessary instructions and basics regarding the ESP32 module.</p>
+
+
+  </div>
+
+  <div class="date">
+    Written on November 24, 2019
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Webserver On ESP32 Micropython – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Don’t you want to remote control your esp32 robot? read this guide then :)
+
+" />
+    <meta property="og:description" content="Don’t you want to remote control your esp32 robot? read this guide then :)
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="Simple Webserver On ESP32 Micropython" />
+    <meta property="twitter:title" content="Simple Webserver On ESP32 Micropython" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Simple Webserver On ESP32 Micropython</h1>
+
+  <div class="entry">
+    <p>Don’t you want to remote control your esp32 robot? read this guide then :)</p>
+
+<h1 id="network">Network</h1>
+
+<p>Can either choose to connect to a common access point(AP) or use the ESP32 itself as an AP</p>
+
+<h2 id="common-ap">Common AP</h2>
+
+<p>Put the code below into your boot.py</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">do_connect</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">network</span>
+    <span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'connecting to network...'</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'&lt;essid&gt;'</span><span class="p">,</span> <span class="s">'&lt;password&gt;'</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+            <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'network config:'</span><span class="p">,</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="esp32-as-ap">ESP32 as AP</h2>
+
+<p>Put the code below into your boot.py and PLEASE note authmode have to be set to 3 else your AP is unencrpyted</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">do_ap</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">network</span>
+    <span class="n">ssid</span> <span class="o">=</span> <span class="s">'IAM_AP'</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s">'IAMPassword'</span>
+    <span class="n">authmode</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># WPA2
+</span>    <span class="n">ap</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">AP_IF</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">essid</span><span class="o">=</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">authmode</span><span class="o">=</span><span class="n">authmode</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">ap</span><span class="o">.</span><span class="n">active</span><span class="p">()</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+      <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Connection successful'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>You can include both if your boot.py and just call the function accordingly depending on your needs</p>
+
+<h1 id="webserver">Webserver</h1>
+
+<p>The following code is largely taken from <a href="https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/">random nerd tutorials</a> with some modifications. I’m using do_connect over here but you can choose to use do_ap if you wish. Copy and dump the code in your main.py.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">do_connect</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">usocket</span> <span class="k">as</span> <span class="n">socket</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="kn">import</span> <span class="nn">esp</span>
+<span class="n">esp</span><span class="o">.</span><span class="n">osdebug</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+<span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Stop"</span>
+
+<span class="k">def</span> <span class="nf">web_page</span><span class="p">():</span>
+  
+  <span class="n">html</span> <span class="o">=</span> <span class="s">"""
+    &lt;html&gt;
+        &lt;head&gt; 
+            &lt;title&gt;ESP Web Server&lt;/title&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+            &lt;link rel="icon" href="data:,"&gt; 
+            &lt;style&gt;
+                html{font-family: Helvetica; display:inline-block; margin: 0px auto; text-align: center;}
+                h1{color: #0F3376; padding: 2vh;}p{font-size: 1.5rem;}
+                .button{display: inline-block; background-color: #e7bd3b; border: none; border-radius: 4px; color: white;  padding: 16px 40px; text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
+                .buttonStop{background-color: red;}
+            &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt; 
+            &lt;h1&gt;ESP Web Server&lt;/h1&gt; 
+                &lt;p&gt;Robot state: &lt;strong&gt;"""</span> <span class="o">+</span> <span class="n">robot_state</span> <span class="o">+</span> <span class="s">"""&lt;/strong&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/?robot=stop"&gt;&lt;button class="button buttonStop"&gt;STOP&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/?robot=forward"&gt;&lt;button class="button"&gt;FORWARD&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/?robot=backward"&gt;&lt;button class="button"&gt;BACKWARD&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/?robot=right"&gt;&lt;button class="button"&gt;RIGHT&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/?robot=left"&gt;&lt;button class="button"&gt;LEFT&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+    """</span>
+  <span class="k">return</span> <span class="n">html</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">''</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+  <span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'Got a connection from </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">addr</span><span class="p">))</span>
+  <span class="n">request</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+  <span class="n">request</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'Content = </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">request</span><span class="p">)</span>
+  <span class="n">robot_stop</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'/?robot=stop'</span><span class="p">)</span>
+  <span class="n">robot_forward</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'/?robot=forward'</span><span class="p">)</span>
+  <span class="n">robot_backward</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'/?robot=backward'</span><span class="p">)</span>
+  <span class="n">robot_right</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'/?robot=right'</span><span class="p">)</span>
+  <span class="n">robot_left</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'/?robot=left'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">robot_stop</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'robot stopping...'</span><span class="p">)</span>
+    <span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Stop"</span>
+  <span class="k">if</span> <span class="n">robot_forward</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'robot advancing forward...'</span><span class="p">)</span>
+    <span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Forward"</span>
+  <span class="k">if</span> <span class="n">robot_backward</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'robot retreating backward...'</span><span class="p">)</span>
+    <span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Backward"</span>
+  <span class="k">if</span> <span class="n">robot_right</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'robot turning right...'</span><span class="p">)</span>
+    <span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Right"</span>
+  <span class="k">if</span> <span class="n">robot_left</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'robot turning left...'</span><span class="p">)</span>
+    <span class="n">robot_state</span> <span class="o">=</span> <span class="s">"Left"</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">web_page</span><span class="p">()</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'HTTP/1.1 200 OK</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'Content-Type: text/html</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'Connection: close</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The code should be pretty straight forward, but the reason why all the robot states == 6 is because when you use find for the specific href on the original http request it would give you the index at 6 always. That is if it exist, on the other hand if it doesn’t it returns 0.</p>
+
+<p>If you want the code to interact with real electronics, just replace the print statement “robot ……” to code that interacts with the pins</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>that’s pretty much it, I’ll soon make a guide that showcase how to host a webserver on your ESP32 using a flask, django like library called picoweb</p>
+
+  </div>
+
+  <div class="date">
+    Written on January 19, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

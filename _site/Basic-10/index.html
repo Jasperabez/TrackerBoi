@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic 10 – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This is an introduction to basic Fan In/Out, Signal Level Conversion and Output in a Microcontroller set-up.
+
+" />
+    <meta property="og:description" content="This is an introduction to basic Fan In/Out, Signal Level Conversion and Output in a Microcontroller set-up.
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="Basic 10" />
+    <meta property="twitter:title" content="Basic 10" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Basic 10</h1>
+
+  <div class="entry">
+    <p>This is an introduction to basic Fan In/Out, Signal Level Conversion and Output in a Microcontroller set-up.</p>
+
+<h1 id="fan-in--out">Fan In / Out</h1>
+
+<p><strong>Fan-in</strong>: Maximum number of input a single gate can accept.
+<strong>Fan-out</strong>: Maximum number of load gate connected to the output of a single gate before signal degradation.</p>
+
+<p><img src="../images/Basic10/fanin_fanout.webp" width="300" height="230" /></p>
+
+<h1 id="voltage-limit">Voltage Limit</h1>
+
+<p>Voltage limit is defined by the maximum or minimum steady-state voltage limit. Meaning if the voltage given to the hardware is lower or higher than the voltage limit specified by the hardware, is might not work (under voltage) or overheat and burn (over voltage).</p>
+
+<p>For example, the Esp32 is rated for a 2.2V to 3.6V operation voltage limit. Its GPIO is rated for 3.3V input/ouput</p>
+
+<blockquote>
+  <p><strong>NOT</strong> 5V like Arduino</p>
+</blockquote>
+
+<h1 id="transducers">Transducers</h1>
+
+<p>Sensors and transducers are considered as energy conversion devices which receive a physical data such as temperature, pressure or light intensity and generate an electrical signal such as voltage depending on the type of transducer. Transducers can then be divided into two categories: <strong>Active</strong> or <strong>Passive</strong></p>
+
+<h3 id="active">Active</h3>
+
+<p>An active transducer generates electrical signal in response to the physical parameter and does not require electrical energy in doing so.</p>
+
+<h4 id="example-piezoelectric-sensor">Example: Piezoelectric sensor</h4>
+
+<p><img src="../images/piezo.jpg" width="300" height="150" /></p>
+
+<h3 id="passive">Passive</h3>
+
+<p>A passive transducer requires external energy for it’s operation.</p>
+
+<h4 id="example-photoconductive-devices">Example: Photoconductive Devices</h4>
+
+<p><img src="../images/ldr.jpg" width="300" height="150" /></p>
+
+<h4 id="switch-onoff">Switch (On/Off)</h4>
+
+<p>The resistive passive sensor changes value (electrical) when the physical quantity (e.a. temperature, force, light etc) changes. These sensors can (generally) be used in combination with an extra resistor, like described above. The most common sensor is a switch. A switch is actually a resistor with two states: infinite and zero. When a switch has to be connected to the analog input of a sensor-interface, the same series resistor as mentioned before is needed.</p>
+
+<p>A good value of the series resistor R1 will be between 10K-50K. In rest situation (switch is not pushed), the output will be +5V. When the switch is pushed, the resistance will be zero (shortcut to gnd) and the output voltage will be 0V.</p>
+
+<p>Things to consider when choosing a transducer:</p>
+
+<ol>
+  <li>
+    <p>Linearity</p>
+  </li>
+  <li>
+    <p>Sensitivity</p>
+  </li>
+  <li>
+    <p>Dynamic range</p>
+  </li>
+  <li>
+    <p>Repeatability</p>
+  </li>
+  <li>
+    <p>Physical Size</p>
+  </li>
+</ol>
+
+<h1 id="output">Output</h1>
+
+<p>To interface your Microcontroller(ESP32) and your Electronics(Transducers and Actuators) using micropython make sure your have the micropython environment setup if not you can refer to one of our many guides. In this guide I will showing how to interface <strong>actuators</strong> primarily <strong>LED</strong> and a <strong>DC motor</strong> .</p>
+
+<h2 id="led">LED</h2>
+
+<h3 id="components-needed">Components needed:</h3>
+
+<ol>
+  <li>
+    <p>ESP32</p>
+  </li>
+  <li>
+    <p>5mm LED (any color except blue or white)</p>
+  </li>
+  <li>
+    <p>Resistor (range 100-200ohms)</p>
+  </li>
+  <li>
+    <p>breadboard (optional)</p>
+  </li>
+</ol>
+
+<p>do take note that ESP32 voltage output is <strong>3.3V</strong>, LED voltage is normally <strong>2V</strong> and our max current is assumed to be <strong>20mA</strong>, hence using formula of <strong>R=V/I</strong> we obtain our optimal range but you can adjust the resistor value accordingly if so desired.</p>
+
+<h3 id="schematic">Schematic</h3>
+
+<p><img src="/TrackerBoi/images/Basic10/led_fritzdiag.png" alt="" />
+<img src="/TrackerBoi/images/Basic10/led_circuitdiag.png" alt="" /></p>
+
+<p>Wire up the LED accordingly, I’m using pin 26 you can choose other pins if so wish</p>
+
+<h3 id="code">Code</h3>
+
+<p>All code is to be written in main.py file</p>
+
+<h4 id="led-onoff">LED On/Off</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="n">p26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">p26</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#P26.value(0) to off
+</span></code></pre></div></div>
+
+<p>As you can see it’s just simple On/Off, how about adjusting the brightness?</p>
+
+<h4 id="led-onoff--brightness">LED On/Off + brightness</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">PWM</span>
+<span class="n">p26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pwm26</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">p26</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span> <span class="c1">#LED will turn on at this point
+#freq can be adjusted accordingly
+#duty value ranges from 0-1023 so 512 is 50% duty cycle
+#duty value directly correlate with brightness
+</span></code></pre></div></div>
+
+<p>The adjusting of brightness is done via PWM you can read up more on <a href="https://docs.micropython.org/en/latest/esp8266/tutorial/pwm.html">Micropython site</a>.</p>
+
+<h2 id="dc-motor">DC Motor</h2>
+
+<h3 id="components-needed-1">Components needed:</h3>
+
+<ol>
+  <li>
+    <p>ESP32</p>
+  </li>
+  <li>
+    <p>5V power supply/battery</p>
+  </li>
+  <li>
+    <p>5V DC Motor</p>
+  </li>
+  <li>
+    <p>220 Ohm resistor</p>
+  </li>
+  <li>
+    <p>Transistor P2N2222A</p>
+  </li>
+  <li>
+    <p>Diode 1N4148</p>
+  </li>
+  <li>
+    <p>breadboard (optional)</p>
+  </li>
+</ol>
+
+<p>If needed swap out the resistor, transistor, and diode by following this <a href="https://electronicsclub.info/transistorcircuits.htm">guide</a> by electronics club.</p>
+
+<h3 id="schematic-1">Schematic</h3>
+
+<p><img src="/TrackerBoi/images/Basic10/motor_fritzdiag.png" alt="" />
+<img src="/TrackerBoi/images/Basic10/motor_circuitdiag.png" alt="" /></p>
+
+<p>wire up the motor accordingly, instead of using pin 26 I’m using pin 21 here. The reasoning behind using a transistor and external power supply is that the motor have much higher current and voltage requirement than the ESP32 can supply, additionally the diode acts as a flyback diode to reduce back emf from the motor.</p>
+
+<h3 id="code-1">Code</h3>
+
+<p>to On/Off or control speed of motor, do refer back to the <a href="#code">LED section</a> as its the same. Do however change the pin number to whatever pin that your transistor is connected to..</p>
+
+  </div>
+
+  <div class="date">
+    Written on November 25, 2019
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
