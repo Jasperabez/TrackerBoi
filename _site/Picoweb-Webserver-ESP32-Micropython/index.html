@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Picoweb Webserver ESP32 Micropython – TrackerBoi – Seedlings Madness</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="I always wanted to learn flask or django so I decided to recode the Simple Webserver with Picoweb, a library that’s extremely similar to the 2 library I mentioned but for micropython.
+
+" />
+    <meta property="og:description" content="I always wanted to learn flask or django so I decided to recode the Simple Webserver with Picoweb, a library that’s extremely similar to the 2 library I mentioned but for micropython.
+
+" />
+    
+    <meta name="author" content="TrackerBoi" />
+
+    
+    <meta property="og:title" content="Picoweb Webserver ESP32 Micropython" />
+    <meta property="twitter:title" content="Picoweb Webserver ESP32 Micropython" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/TrackerBoi/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="TrackerBoi - Seedlings Madness" href="/TrackerBoi/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/TrackerBoi/" class="site-avatar"><img src="https://raw.githubusercontent.com/Jasperabez/Trackerboi/master/images/seedling.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/TrackerBoi/">TrackerBoi</a></h1>
+            <p class="site-description">Seedlings Madness</p>
+          </div>
+
+          <nav>
+            <a href="/TrackerBoi/">Home</a>
+            <a href="/TrackerBoi/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Picoweb Webserver ESP32 Micropython</h1>
+
+  <div class="entry">
+    <p>I always wanted to learn flask or django so I decided to recode the Simple Webserver with Picoweb, a library that’s extremely similar to the 2 library I mentioned but for micropython.</p>
+
+<h1 id="diy-or-clone-repo">DIY or clone repo</h1>
+
+<p>You can either to choose to clone the repo with all the micropython modules loaded, or you can choose to challenge yourself and build it by yourself.</p>
+
+<h2 id="clone-repo">Clone repo</h2>
+
+<p>If you want choose to clone it, here’s the <a href="https://github.com/Jasperabez/TrackerBoi/tree/master/picoweb-robot">link</a>, and follow the instructions below.</p>
+
+<ul>
+  <li>clone the repo (git clone)</li>
+  <li>transfer all files and directories into your ESP32 (ampy, thonny)</li>
+  <li>press reset button</li>
+  <li>connect to the AP using credentials found in boot.py OR connect to common AP by modifying value in boot.py (change to do_connect if so)</li>
+  <li>navigate to the IP address as displayed on the terminal</li>
+</ul>
+
+<h2 id="diy">DIY</h2>
+
+<p>If you are feeling adventureous and smart these are the steps:</p>
+
+<ul>
+  <li>connect your ESP32 to the internet</li>
+  <li>type the following commands in repl
+    <ul>
+      <li><code class="highlighter-rouge">import upip</code></li>
+      <li><code class="highlighter-rouge">upip.install('picoweb')</code></li>
+    </ul>
+  </li>
+  <li>remove the folder “uasyncio” from the folder lib (weird bug, picoweb didn’t install correct stuff)</li>
+  <li>install another version of uasyncio using command <code class="highlighter-rouge">upip.install('uasyncio')</code></li>
+  <li>run more commands
+    <ul>
+      <li><code class="highlighter-rouge">upip.install('pycopy-ulogging')</code></li>
+      <li><code class="highlighter-rouge">upip.install('utemplate')</code></li>
+    </ul>
+  </li>
+  <li>IMPORTANT step, open up ./lib/picoweb/<em>init</em>.py, search for awritestr.. at line 253 and change that to awrite..</li>
+  <li>copy main.py and boot.py from the <a href="https://github.com/Jasperabez/TrackerBoi/tree/master/picoweb-robot">repo</a> I mentioned earlier</li>
+  <li>that’s all and since you’re a pro you know what to do (hint: follow the bottom half of Clone Repo instructions)</li>
+</ul>
+
+<h1 id="performance">Performance</h1>
+
+<p>By the time after you run it you should realize that picoweb is kinda of slower that the simple webserver, and you’re right I feel that too. That’s probably because of the extra overhead code that it has, and would probably not be suited for the use case of controlling a robot. However, it is definitely a valid choice for more sophisacated web apps that you want to host on your esp32.</p>
+
+
+  </div>
+
+  <div class="date">
+    Written on January 20, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
