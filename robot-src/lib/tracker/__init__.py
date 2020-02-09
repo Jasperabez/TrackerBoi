@@ -10,8 +10,9 @@ class Tracker:
     en2 = Pin(0, Pin.OUT)
     a2 = Pin(0, Pin.OUT)
     b2 = Pin(0, Pin.OUT)
+    m = Pin(0,Pin.OUT)
     
-    def __init__(self, en1, a1, b1, en2, a2, b2):
+    def __init__(self, en1, a1, b1, en2, a2, b2, m):
         self.en1 = Pin(en1, Pin.OUT)
         self.en1 = PWM(self.en1)
         self.a1 = Pin(a1, Pin.OUT)
@@ -21,6 +22,7 @@ class Tracker:
         self.en2 = PWM(self.en2)
         self.a2 = Pin(a2, Pin.OUT)
         self.b2 = Pin(b2, Pin.OUT)
+        self.m = Pin(m,Pin.OUT)
      
     def setup(self):
         self.en1.duty(500)
@@ -74,3 +76,15 @@ class Tracker:
         
         #self.en2.freq(freq)
         self.en2.duty(speed)
+    
+    def blade_toggle(self, curr_mstate):
+        if(curr_mstate=="Off"):
+            self.m.on()
+            curr_mstate="On"
+        elif(curr_mstate=="On"):
+            self.m.off()
+            curr_mstate="Off"
+        else:
+            print(curr_mstate)
+        return curr_mstate
+            
