@@ -6,15 +6,21 @@ except:
   import socket
 
 import tracker
+import oled_display
 import esp
+import time
 esp.osdebug(None)
 
 import gc
 gc.collect()
 
+batt_lvl=99
+dist_covered=100
 bot = tracker.Tracker(14,12,13,25,26,27,32)
 robot_state = "Stop"
 blade_state = "Off"
+speed_val = 50
+bot_oled = oled_display.Oled_display(robot_state,str(speed_val),batt_lvl,dist_covered);
 bot.setup()
 
 def web_page():
@@ -84,6 +90,9 @@ def iframe():
       <body>
         <p>Robot state: <strong>""" + robot_state + """</strong></p>
         <p>Blade: <strong>""" + blade_state + """</strong></p>
+        <p>Battery Level: <strong>""" + str(batt_lvl) + """</strong></p>
+        <p>Distance Travelled: <strong>""" + str(dist_covered) + """ metres</strong></p>
+        <p>Speed: <strong>""" + str(speed_val) + """ metres</strong></p>
         <p><a href="/?robot=blade_toggle"><button class="button button--blade">Blade</button></a></p>
         <p><a href="/?robot=forward"><button class="button">FORWARD</button></a></p>
         <p>
@@ -130,11 +139,11 @@ while True:
   isControlKey = False
   if speed_change == 6:
     try:
-      speed = int(request[14:17])
+      speed_val = int(request[14:17])
     except:
-      speed = int(request[14:16])
-    print(speed)
-    bot.setSpeed(speed)
+      speed_val = int(request[14:16])
+    print(speed_val)
+    bot.setSpeed(speed_val)
   if robot_stop == 6:
     print('robot stopping...')
     robot_state = "Stop"
@@ -170,6 +179,7 @@ while True:
     response = iframe()
   else:
     response = web_page()
+  bot_oled.display(robot_state,str(speed_val),batt_lvl,dist_covered)
   conn.send('HTTP/1.1 200 OK\n')
   conn.send('Content-Type: text/html\n')
   conn.send('Connection: close\n\n')
