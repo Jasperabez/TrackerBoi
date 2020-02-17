@@ -173,26 +173,26 @@
 
 
     <script>
-        function sendBtnCommand(btnDirection) {
-            var button = document.getElementById(btnDirection);
-            var command = button.getAttribute("href");
+        // function sendBtnCommand(btnDirection) {
+        //     var button = document.getElementById(btnDirection);
+        //     var command = button.getAttribute("href");
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // console.log("respond received");
-                    // console.log(xhttp.responseText);
-                    document.getElementById("demo").innerHTML =
-                        xhttp.responseText;
-                    // sendAJAX();
-                }
-            };
-            xhttp.open("GET", command, true);
-            console.log("Sent command: " + command);
-            xhttp.send();
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function () {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             // console.log("respond received");
+        //             // console.log(xhttp.responseText);
+        //             document.getElementById("demo").innerHTML =
+        //                 xhttp.responseText;
+        //             // sendAJAX();
+        //         }
+        //     };
+        //     xhttp.open("GET", command, true);
+        //     console.log("Sent command: " + command);
+        //     xhttp.send();
 
-            return false;
-        }
+        //     return false;
+        // }
     </script>
 
 
