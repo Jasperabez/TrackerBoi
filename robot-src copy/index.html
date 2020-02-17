@@ -195,6 +195,40 @@
         }
     </script>
 
+    <script>
+        function submitSpeed() {
+            var form = document.getElementById("speedEntry");
+            speed = document.getElementById("speedValue").value;
+            speed = parseInt(speed, 10)
+            if (Number.isInteger(speed) && speed >= 0 && speed <= 100) {
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // console.log("respond received");
+                        // console.log(xhttp.responseText);
+                        // sendAJAX();
+                    }
+                };
+                xhttp.open("GET", "?speed=" + speed, true);
+                console.log("Sent command: " + command);
+                xhttp.send();
+
+            }
+            else {
+                window.alert("Not valid case, need to be between 0 and 100")
+            }
+        }
+    </script>
+    <script>
+        document.getElementById('speedValue').addEventListener('keypress', function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                submitSpeed();
+            }
+        })
+    </script>
+
 
 </head>
 
@@ -296,27 +330,7 @@
 
     </div>
 
-    <script>
-        function submitSpeed() {
-            var form = document.getElementById("speedEntry");
-            speed = document.getElementById("speedValue").value;
-            speed = parseInt(speed, 10)
-            if (Number.isInteger(speed) && speed >= 0 && speed <= 100) {
-                form.submit();
-            }
-            else {
-                window.alert("Not valid case, need to be between 0 and 100")
-            }
-        }
-    </script>
-    <script>
-        document.getElementById('speedValue').addEventListener('keypress', function (event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-                submitSpeed();
-            }
-        })
-    </script>
+
 </body>
 
 </html>
