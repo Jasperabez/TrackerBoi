@@ -3,6 +3,9 @@ from machine import PWM
 import time
 
 class Tracker:
+    millis = 0
+    dist = 0
+    dist_state = 'no_dist'
     en1 = Pin(0, Pin.OUT)
     a1 = Pin(0, Pin.OUT)
     b1 = Pin(0, Pin.OUT)
@@ -37,6 +40,8 @@ class Tracker:
         
         self.a2.on()
         self.b2.off()
+        self.dist_state = "dist"
+        self.millis = int(round(time.time() * 1000))
         
     def backward(self):
         print("backward")
@@ -45,6 +50,8 @@ class Tracker:
         
         self.a2.off()
         self.b2.on()
+        self.dist_state = "dist"
+        self.millis = int(round(time.time() * 1000))
         
     def left(self):
         self.a1.off()
@@ -52,6 +59,8 @@ class Tracker:
         
         self.a2.on()
         self.b2.off()
+        self.dist_state = "no_dist"
+        self.millis = int(round(time.time() * 1000))
         
     def right(self):
         self.a1.on()
@@ -59,6 +68,7 @@ class Tracker:
         
         self.a2.off()
         self.b2.on()
+        self.dist_state = "no_dist"
         
     def stop(self):
         self.a1.off()
@@ -66,6 +76,7 @@ class Tracker:
         
         self.a2.off()
         self.b2.off()
+        self.dist_state = "no_dist"
     
     def setSpeed(self, duty):
         #self.en1.freq(freq)
@@ -87,4 +98,11 @@ class Tracker:
         else:
             print(curr_mstate)
         return curr_mstate
+    
+    def get_dist(self):
+        if
+    
+    def millis_handler(self):
+        if self.dist_state == "dist":
+            self.millis = int(round(time.time() * 1000))
             
