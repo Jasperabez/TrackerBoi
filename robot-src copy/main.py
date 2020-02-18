@@ -18,6 +18,7 @@ gc.collect()
 batt_lvl=99
 dist_covered=100
 speed_val = 50
+robot_state = "moving"
 bot_oled = oled_display.Oled_display(robot_state,str(speed_val),batt_lvl,dist_covered);
 
 bot = tracker.Tracker(14, 12, 13, 32, 26, 27, 23)
@@ -51,6 +52,7 @@ while True:
     if speed_change == 6:
         try:
             speed = int(request[14:17])
+            speed_val = speed
         except:
             speed = int(request[14:16])
         print(speed)
