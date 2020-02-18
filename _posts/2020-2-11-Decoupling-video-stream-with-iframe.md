@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Decoupling-video-stream-with-iframe
+title: Decoupling video stream with iframe
 ---
 
 While adding video stream to our simple web server, we realized an issue. 
