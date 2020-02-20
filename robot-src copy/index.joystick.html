@@ -1,0 +1,288 @@
+<html>
+
+<head>
+    <title>ESP Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+
+    <script>
+        var JoyStick = function (t, e) { var i = void 0 === (e = e || {}).title ? "joystick" : e.title, n = void 0 === e.width ? 0 : e.width, o = void 0 === e.height ? 0 : e.height, r = void 0 === e.internalFillColor ? "#00AA00" : e.internalFillColor, h = void 0 === e.internalLineWidth ? 2 : e.internalLineWidth, d = void 0 === e.internalStrokeColor ? "#003300" : e.internalStrokeColor, a = void 0 === e.externalLineWidth ? 2 : e.externalLineWidth, l = void 0 === e.externalStrokeColor ? "#008000" : e.externalStrokeColor, c = void 0 === e.autoReturnToCenter || e.autoReturnToCenter, u = document.getElementById(t), s = document.createElement("canvas"); s.id = i, 0 == n && (n = u.clientWidth), 0 == o && (o = u.clientHeight), s.width = n, s.height = o, u.appendChild(s); var f = s.getContext("2d"), v = 0, g = 2 * Math.PI, C = (s.width - 110) / 2, w = C + 5, m = C + 30, p = s.width / 2, L = s.height / 2, E = s.width / 10, S = -1 * E, k = s.height / 10, W = -1 * k, G = p, x = L; function R() { f.beginPath(), f.arc(p, L, m, 0, g, !1), f.lineWidth = a, f.strokeStyle = l, f.stroke() } function y() { f.beginPath(), G < C && (G = w), G + C > s.width && (G = s.width - w), x < C && (x = w), x + C > s.height && (x = s.height - w), f.arc(G, x, C, 0, g, !1); var t = f.createRadialGradient(p, L, 5, p, L, 200); t.addColorStop(0, r), t.addColorStop(1, d), f.fillStyle = t, f.fill(), f.lineWidth = h, f.strokeStyle = d, f.stroke() } "ontouchstart" in document.documentElement ? (s.addEventListener("touchstart", function (t) { v = 1 }, !1), s.addEventListener("touchmove", function (t) { t.preventDefault(), 1 == v && (G = t.touches[0].pageX, x = t.touches[0].pageY, G -= s.offsetLeft, x -= s.offsetTop, f.clearRect(0, 0, s.width, s.height), R(), y()) }, !1), s.addEventListener("touchend", function (t) { v = 0, c && (G = p, x = L); f.clearRect(0, 0, s.width, s.height), R(), y() }, !1)) : (s.addEventListener("mousedown", function (t) { v = 1 }, !1), s.addEventListener("mousemove", function (t) { 1 == v && (G = t.pageX, x = t.pageY, G -= s.offsetLeft, x -= s.offsetTop, f.clearRect(0, 0, s.width, s.height), R(), y()) }, !1), s.addEventListener("mouseup", function (t) { v = 0, c && (G = p, x = L); f.clearRect(0, 0, s.width, s.height), R(), y() }, !1)), R(), y(), this.GetWidth = function () { return s.width }, this.GetHeight = function () { return s.height }, this.GetPosX = function () { return G }, this.GetPosY = function () { return x }, this.GetX = function () { return ((G - p) / w * 100).toFixed() }, this.GetY = function () { return ((x - L) / w * 100 * -1).toFixed() }, this.GetDir = function () { var t = "", e = G - p, i = x - L; return i >= W && i <= k && (t = "C"), i < W && (t = "N"), i > k && (t = "S"), e < S && ("C" == t ? t = "W" : t += "W"), e > E && ("C" == t ? t = "E" : t += "E"), t } };
+
+    </script>
+
+    <style>
+        html,
+        body,
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica;
+        }
+
+        .spacer {
+            flex: 1 1 auto;
+        }
+
+        .container {
+            margin: auto;
+            width: 400px;
+            height: 100%;
+            padding-top: 8px;
+            box-sizing: border-box;
+        }
+
+        .myImg {
+            height: auto;
+            max-height: 240px;
+            max-width: 520px;
+            width: 100%;
+        }
+
+        .state_holder {
+            border: 3px #0984e3 solid;
+            border-radius: 16px;
+        }
+
+        .robot_state {
+            font-size: 1.4em;
+            text-align: left;
+            font-family: Helvetica;
+            padding: 16px;
+            color: #0984e3;
+            border-radius: 16px;
+        }
+
+        .info_holder {
+            padding: 8px;
+            display: flex;
+        }
+
+        .distance {
+            color: #0984e3;
+        }
+
+        .battery_holder {
+            display: flex;
+            color: #0984e3;
+        }
+
+        .battery__img {
+            margin-top: 0;
+        }
+
+
+        .control_holder {
+            margin: 32px auto;
+            display: block;
+            width: 316px;
+        }
+
+        .button {
+            width: 100px;
+            height: 100px;
+            background-color: #a29bfe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            transition: all 0.2s;
+        }
+
+        .button:hover {
+            background-color: #74b9ff;
+        }
+
+        .button:active {
+            background-color: #6c5ce7;
+        }
+
+        .up {
+            grid-area: up;
+        }
+
+        .right {
+            grid-area: right;
+            justify-self: left;
+            transform: rotate(90deg);
+        }
+
+        .left {
+            grid-area: left;
+            justify-self: right;
+            transform: rotate(-90deg);
+        }
+
+        .middle {
+            grid-area: middle;
+        }
+
+        .down {
+            grid-area: down;
+            transform: rotate(180deg);
+        }
+
+        .blade {
+            grid-area: blade;
+            border-radius: 50%;
+            background-color: #0984e3;
+            width: 50%;
+            height: 50%;
+        }
+
+        .speed_holder {
+            margin-bottom: 16px;
+        }
+
+        .speed {
+            width: 100%;
+            display: flex;
+            background-color: #a29bfe;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 16px;
+        }
+
+        .speed__img {
+            margin-right: 8px;
+            padding: 8px;
+        }
+
+        .speed__input {
+            color: white;
+            flex: 1 1 auto;
+            padding: 8px;
+            margin-right: 8px;
+            background-color: #a29bfe;
+            border: none;
+            font-family: Helvetica;
+        }
+
+        .speed__btn {
+            background-color: #0984e3;
+            color: white;
+            padding: 8px;
+            border-radius: 16px;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .speed__btn:hover {
+            background-color: #0e65a7;
+        }
+
+        .my_joystick {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            margin: 50px;
+            display: flex;
+        }
+    </style>
+
+    <script>
+        function sendBtnCommand(btnDirection) {
+            var button = document.getElementById(btnDirection);
+            var command = button.getAttribute("href");
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // console.log("respond received");
+                    // console.log(xhttp.responseText);
+                    document.getElementById("demo").innerHTML =
+                        xhttp.responseText;
+                    // sendAJAX();
+                }
+            };
+            xhttp.open("GET", command, true);
+            console.log("Sent command: " + command);
+            xhttp.send();
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img class="myImg" src=http://192.168.15.10:81/stream>
+
+
+        <div class="info_holder">
+            <div class="distance_holder">
+                <p class="distance">Distance covered: 6.0m</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="battery_holder">
+                <p class="battery__lvl">
+                    99%
+                </p>
+                <svg class="battery__img" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"
+                        fill="#0984e3" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="control_holder">
+
+            <div id="joyDiv" class="my_joystick"></div>
+
+            <p>X: <input id="X" type="number" /></p>
+            <p>Y: <input id="Y" type="number" /></p>
+            <p>Distance: <input type="number" name="dist" id="dist"></p>
+            <p>Angle: <input type="number" id="angle"></p>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        // Create JoyStick object into the DIV 'joyDiv'
+        var joy = new JoyStick('joyDiv');
+
+        var x = document.getElementById("X");
+        var y = document.getElementById("Y");
+        var dist = document.getElementById('dist');
+        var angle = document.getElementById('angle');
+
+        function updateJoystick() {
+
+            x.value = joy.GetX();
+            y.value = joy.GetY();
+
+            xPos = x.value;
+            yPos = y.value;
+
+            dist.value = Math.sqrt(joy.GetX() * joy.GetX() + joy.GetY() * joy.GetY());
+            angle.value = Math.tan(joy.GetY() / joy.GetX()) / Math.PI * 180;
+
+            if (y > 0) {
+                //forward
+            } else if (y < 0) {
+                //backward
+            } else {
+                //stop
+            }
+
+            if (x > 0) {
+                //lean right
+            } else if (x < 0) {
+                //lean left
+            } else {
+                //center
+            }
+
+        }
+
+        updateJoystick();
+
+        setInterval(updateJoystick, 50);
+    </script>
+
+</body>
+
+</html>
