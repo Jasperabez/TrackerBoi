@@ -4,9 +4,6 @@ import time
 
 
 class Tracker:
-    millis = 0
-    dist = 0
-    dist_state = 'no_dist'
     en1 = Pin(0, Pin.OUT)
     a1 = Pin(0, Pin.OUT)
     b1 = Pin(0, Pin.OUT)
