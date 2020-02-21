@@ -1,4 +1,28 @@
-# Engineering Realisation
+# Engineering Realisation - TrackerBot
+
+**Demo Video:**
+
+[![alt text](http://img.youtube.com/vi/un4iWNQuDIo/0.jpg)](http://www.youtube.com/watch?v=un4iWNQuDIo "title")
+
+**Final Realisation**
+
+TrackerBot : The ultimate rechargeable weeding robot for all applications
+
+Gardening | Farming | Maintenance
+
+With TrackerBot, gardeners can now perform weeding without the monotony and frustration of weeding while environmentalists can breathe easily with a chemical-free solution to weeding.
+
+1) IMPROVE WORKING CONDITIONS - TrackerBot allows remote weeding to reduce workload and danger
+
+2) LOWER COSTS - TrackerBot is reduced pesticide and maintenance costs as it weeds mechanically
+
+3) FEWER MAINTENANCE WORRIES - The robot is entirely electric, so you no longer need to spend time on the maintaining tools
+
+Our Team: Jabez Tho, Hans Delano, Ahmad Rifaaie, Lee Wei Juin
+
+Mentors: Mr. Rodney Dorville and Mr. Tune Chien Jung
+
+# Timeline
 
 **Week 1**
 
@@ -241,14 +265,6 @@ Examples: Travel adapters
 * Boost Converters
   * Converts Low DC to High DC voltages
   * Most commonly used in Li-ion battery banks (3.74V to 5V)
-
-**Power for our project**
-
-Youtube: Dronebot Workshop
-
-Article:
-
-Only use one charger for battery
 
 
 
